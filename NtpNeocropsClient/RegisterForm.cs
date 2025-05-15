@@ -1,4 +1,5 @@
 ﻿using ClassLibrary;
+using NtpNeocropsClient.Entity;
 using ServiceReference;
 using System;
 using System.Collections.Generic;
@@ -36,14 +37,7 @@ namespace NtpNeocropsClient
         {
             try
             {
-                var client = new CountryInfoServiceSoapTypeClient(CountryInfoServiceSoapTypeClient.EndpointConfiguration.CountryInfoServiceSoap);
-                var result = await client.ListOfCountryNamesByNameAsync();
-
-                var countries = result.Body.ListOfCountryNamesByNameResult
-                    .Select((c) => {
-                        return new { Name = c.sName, Code = c.sISOCode };
-                    })
-                    .ToList();
+                var countries = await GetCountriesAsync();
 
                 comboBoxCountry.DisplayMember = "Name";
                 comboBoxCountry.ValueMember = "Code";
@@ -51,8 +45,61 @@ namespace NtpNeocropsClient
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Greška pri dohvaćanju zemalja: " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
+        }
+
+        private async Task<List<Country>> GetCountriesAsync()
+        {
+            var countries = new List<Country>();
+
+            string cacheDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "cache");
+            Directory.CreateDirectory(cacheDir);
+
+            string countriesFile = Path.Combine(cacheDir, "countries.bin");
+
+            // binarna datoteka
+            if (File.Exists(countriesFile))
+            {
+                var lastModified = File.GetLastWriteTime(countriesFile);
+                if ((DateTime.Now - lastModified).TotalMinutes <= 5)
+                {
+                    using (var fs = new FileStream(countriesFile, FileMode.Open, FileAccess.Read))
+                    using (var reader = new BinaryReader(fs))
+                    {
+                        int count = reader.ReadInt32();
+                        for (int i = 0; i < count; i++)
+                        {
+                            string name = reader.ReadString();
+                            string code = reader.ReadString();
+                            countries.Add(new Country { Name = name, Code = code });
+                        }
+                    }
+
+                    return countries;
+                }
+            }
+
+            // soap
+            var client = new CountryInfoServiceSoapTypeClient(CountryInfoServiceSoapTypeClient.EndpointConfiguration.CountryInfoServiceSoap);
+            var result = await client.ListOfCountryNamesByNameAsync();
+
+            countries = result.Body.ListOfCountryNamesByNameResult
+                .Select(c => new Country { Name = c.sName, Code = c.sISOCode })
+                .ToList();
+
+            using (var fs = new FileStream(countriesFile, FileMode.Create, FileAccess.Write))
+            using (var writer = new BinaryWriter(fs))
+            {
+                writer.Write(countries.Count);
+                foreach (var country in countries)
+                {
+                    writer.Write(country.Name);
+                    writer.Write(country.Code);
+                }
+            }
+
+            return countries;
         }
     }
 }
