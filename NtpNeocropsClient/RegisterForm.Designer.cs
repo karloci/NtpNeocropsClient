@@ -110,6 +110,7 @@
             // 
             textBoxPassword.Location = new Point(112, 248);
             textBoxPassword.Name = "textBoxPassword";
+            textBoxPassword.PasswordChar = '*';
             textBoxPassword.Size = new Size(282, 23);
             textBoxPassword.TabIndex = 7;
             // 
@@ -126,6 +127,7 @@
             // 
             textBoxRepeatPassword.Location = new Point(112, 313);
             textBoxRepeatPassword.Name = "textBoxRepeatPassword";
+            textBoxRepeatPassword.PasswordChar = '*';
             textBoxRepeatPassword.Size = new Size(282, 23);
             textBoxRepeatPassword.TabIndex = 9;
             // 
@@ -178,6 +180,7 @@
             buttonRegister.TabIndex = 15;
             buttonRegister.Text = "Register";
             buttonRegister.UseVisualStyleBackColor = true;
+            buttonRegister.Click += buttonRegister_Click;
             // 
             // label8
             // 

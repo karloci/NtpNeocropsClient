@@ -112,5 +112,51 @@ namespace NtpNeocropsClient
 
             return countries;
         }
+
+        private void buttonRegister_Click(object sender, EventArgs e)
+        {
+            string fullName = textBoxFullName.Text;
+            string email = textBoxEmail.Text;
+            string password = textBoxPassword.Text;
+            string repeatPassword = textBoxRepeatPassword.Text;
+            string farmName = textBoxFarmName.Text;
+            string farmId = textBoxFarmId.Text;
+            string country = comboBoxCountry.SelectedValue?.ToString() ?? "";
+
+            if(
+                !Validator.IsRequired(fullName) 
+                || !Validator.IsRequired(email) 
+                || !Validator.IsRequired(password)
+                || !Validator.IsRequired(repeatPassword)
+                || !Validator.IsRequired(farmName)
+                || !Validator.IsRequired(farmId)
+                || !Validator.IsRequired(country)
+            )
+            {
+                MessageBox.Show("All fields are required!");
+                return;
+            }
+
+            if( !Validator.IsValidEmail(email) )
+            {
+                MessageBox.Show("Email is not in correct format!");
+                return;
+            }
+
+            if (!password.Equals(repeatPassword))
+            {
+                MessageBox.Show("Passwords does not match!");
+                return;
+            }
+
+            if (!Validator.IsValidOib(farmId))
+            {
+                MessageBox.Show("Farm ID is not in correct format!");
+                return;
+            }
+
+            MessageBox.Show("OK");
+            return;
+        }
     }
 }
