@@ -67,7 +67,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(273, 207);
+            label2.Location = new Point(273, 187);
             label2.Name = "label2";
             label2.Size = new Size(57, 15);
             label2.TabIndex = 3;
@@ -75,7 +75,7 @@
             // 
             // textBoxPassword
             // 
-            textBoxPassword.Location = new Point(273, 225);
+            textBoxPassword.Location = new Point(273, 205);
             textBoxPassword.Name = "textBoxPassword";
             textBoxPassword.PasswordChar = '*';
             textBoxPassword.Size = new Size(257, 23);
@@ -83,7 +83,7 @@
             // 
             // buttonLogin
             // 
-            buttonLogin.Location = new Point(455, 286);
+            buttonLogin.Location = new Point(455, 262);
             buttonLogin.Name = "buttonLogin";
             buttonLogin.Size = new Size(75, 23);
             buttonLogin.TabIndex = 5;
