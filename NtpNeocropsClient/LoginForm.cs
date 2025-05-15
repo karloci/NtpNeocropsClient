@@ -26,5 +26,26 @@ namespace NtpNeocropsClient
         {
             WindowPosition.SaveWindowPosition(this);
         }
+
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            string email = textBoxEmail.Text;
+            string password = textBoxPassword.Text;
+
+            if (!Validator.IsRequired(email) || !Validator.IsRequired(password))
+            {
+                MessageBox.Show("All fields are required!");
+                return;
+            }
+
+            if(!Validator.IsValidEmail(email))
+            {
+                MessageBox.Show("Email is not in correct format!");
+                return;
+            }
+
+            MessageBox.Show("OK");
+            return;
+        }
     }
 }
