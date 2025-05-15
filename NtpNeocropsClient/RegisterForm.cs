@@ -1,4 +1,5 @@
 ﻿using ClassLibrary;
+using ServiceReference;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,6 +30,29 @@ namespace NtpNeocropsClient
         private void RegisterForm_Move(object sender, EventArgs e)
         {
             WindowPosition.SaveWindowPosition(this);
+        }
+
+        private async void RegisterForm_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                var client = new CountryInfoServiceSoapTypeClient(CountryInfoServiceSoapTypeClient.EndpointConfiguration.CountryInfoServiceSoap);
+                var result = await client.ListOfCountryNamesByNameAsync();
+
+                var countries = result.Body.ListOfCountryNamesByNameResult
+                    .Select((c) => {
+                        return new { Name = c.sName, Code = c.sISOCode };
+                    })
+                    .ToList();
+
+                comboBoxCountry.DisplayMember = "Name";
+                comboBoxCountry.ValueMember = "Code";
+                comboBoxCountry.DataSource = countries;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Greška pri dohvaćanju zemalja: " + ex.Message);
+            }
         }
     }
 }
