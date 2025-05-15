@@ -49,6 +49,7 @@
             Controls.Add(buttonBackToLogin);
             Name = "RegisterForm";
             Text = "Register";
+            Move += RegisterForm_Move;
             ResumeLayout(false);
         }
 

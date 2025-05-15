@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,13 +16,19 @@ namespace NtpNeocropsClient
         public RegisterForm()
         {
             InitializeComponent();
+            WindowPosition.LoadWindowPosition(this);
         }
 
         private void buttonBackToLogin_Click(object sender, EventArgs e)
         {
+            this.Hide();
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
-            this.Hide();
+        }
+
+        private void RegisterForm_Move(object sender, EventArgs e)
+        {
+            WindowPosition.SaveWindowPosition(this);
         }
     }
 }

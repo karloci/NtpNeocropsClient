@@ -40,6 +40,7 @@
             buttonCreateAccount.Text = "Create account";
             buttonCreateAccount.UseVisualStyleBackColor = true;
             buttonCreateAccount.Click += buttonCreateAccount_Click;
+            buttonCreateAccount.Move += buttonCreateAccount_Move;
             // 
             // LoginForm
             // 
@@ -49,6 +50,7 @@
             Controls.Add(buttonCreateAccount);
             Name = "LoginForm";
             Text = "Login";
+            Move += LoginForm_Move;
             ResumeLayout(false);
         }
 
