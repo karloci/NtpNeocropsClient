@@ -1,14 +1,14 @@
 ﻿namespace NtpNeocropsClient
 {
-    partial class LoginForm
+    partial class RegisterForm
     {
         /// <summary>
-        ///  Required designer variable.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        ///  Clean up any resources being used.
+        /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -23,37 +23,37 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            buttonCreateAccount = new Button();
+            buttonBackToLogin = new Button();
             SuspendLayout();
             // 
-            // buttonCreateAccount
+            // buttonBackToLogin
             // 
-            buttonCreateAccount.Location = new Point(671, 415);
-            buttonCreateAccount.Name = "buttonCreateAccount";
-            buttonCreateAccount.Size = new Size(117, 23);
-            buttonCreateAccount.TabIndex = 0;
-            buttonCreateAccount.Text = "Create account";
-            buttonCreateAccount.UseVisualStyleBackColor = true;
-            buttonCreateAccount.Click += buttonCreateAccount_Click;
+            buttonBackToLogin.Location = new Point(679, 415);
+            buttonBackToLogin.Name = "buttonBackToLogin";
+            buttonBackToLogin.Size = new Size(109, 23);
+            buttonBackToLogin.TabIndex = 0;
+            buttonBackToLogin.Text = "Back to Login";
+            buttonBackToLogin.UseVisualStyleBackColor = true;
+            buttonBackToLogin.Click += buttonBackToLogin_Click;
             // 
-            // LoginForm
+            // RegisterForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(buttonCreateAccount);
-            Name = "LoginForm";
-            Text = "Login";
+            Controls.Add(buttonBackToLogin);
+            Name = "RegisterForm";
+            Text = "Register";
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Button buttonCreateAccount;
+        private Button buttonBackToLogin;
     }
 }
