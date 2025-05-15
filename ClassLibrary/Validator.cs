@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -11,13 +12,15 @@ namespace ClassLibrary
     {
         public static bool IsRequired(string? value)
         {
-            return !string.IsNullOrWhiteSpace(value);
+            return !string.IsNullOrWhiteSpace(value) && !string.IsNullOrEmpty(value);
         }
 
         public static bool IsValidEmail(string? email)
         {
-            if (string.IsNullOrWhiteSpace(email))
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrEmpty(email))
+            {
                 return false;
+            }
 
             var pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
             return Regex.IsMatch(email, pattern, RegexOptions.IgnoreCase);
