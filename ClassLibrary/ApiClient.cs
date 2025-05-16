@@ -19,8 +19,7 @@ namespace ClassLibrary
             };
 
             httpClient.DefaultRequestHeaders.Accept.Clear();
-            httpClient.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/json"));
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
         public static async Task<T?> PostAsync<T>(string endpoint, object payload)
@@ -36,7 +35,8 @@ namespace ClassLibrary
             if (response.IsSuccessStatusCode)
             {
                 var responseBody = await response.Content.ReadAsStringAsync();
-                return JsonSerializer.Deserialize<T>(responseBody, new JsonSerializerOptions{
+                return JsonSerializer.Deserialize<T>(responseBody, new JsonSerializerOptions
+                {
                     PropertyNameCaseInsensitive = true
                 });
             }
