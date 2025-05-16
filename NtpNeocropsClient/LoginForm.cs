@@ -1,4 +1,6 @@
 using ClassLibrary;
+using NtpNeocropsClient.Dto;
+using NtpNeocropsClient.Entity;
 
 namespace NtpNeocropsClient
 {
@@ -27,7 +29,7 @@ namespace NtpNeocropsClient
             WindowPosition.SaveWindowPosition(this);
         }
 
-        private void buttonLogin_Click(object sender, EventArgs e)
+        private async void buttonLogin_Click(object sender, EventArgs e)
         {
             string email = textBoxEmail.Text;
             string password = textBoxPassword.Text;
@@ -38,14 +40,30 @@ namespace NtpNeocropsClient
                 return;
             }
 
-            if(!Validator.IsValidEmail(email))
+            if (!Validator.IsValidEmail(email))
             {
                 MessageBox.Show("Email is not in correct format!");
                 return;
             }
 
-            MessageBox.Show("OK");
-            return;
+            try
+            {
+                var data = await ApiClient.PostAsync<AuthenticationResponseDto>("/login", new AuthenticationRequestDto
+                {
+                    Email = email,
+                    Password = password
+                });
+
+                if (data != null)
+                {
+                    MessageBox.Show($"Welcome, {data.User.FullName}!");
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
         }
     }
 }
