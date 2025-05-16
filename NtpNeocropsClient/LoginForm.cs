@@ -1,4 +1,5 @@
 using ClassLibrary;
+using CredentialManagement;
 using NtpNeocropsClient.Dto;
 using NtpNeocropsClient.Entity;
 using System.Net;
@@ -13,21 +14,16 @@ namespace NtpNeocropsClient
             WindowPosition.LoadWindowPosition(this);
         }
 
+        private void LoginForm_Move(object sender, EventArgs e)
+        {
+            WindowPosition.SaveWindowPosition(this);
+        }
+
         private void buttonCreateAccount_Click(object sender, EventArgs e)
         {
             this.Hide();
             RegisterForm registerForm = new RegisterForm();
             registerForm.Show();
-        }
-
-        private void buttonCreateAccount_Move(object sender, EventArgs e)
-        {
-            WindowPosition.SaveWindowPosition(this);
-        }
-
-        private void LoginForm_Move(object sender, EventArgs e)
-        {
-            WindowPosition.SaveWindowPosition(this);
         }
 
         private async void buttonLogin_Click(object sender, EventArgs e)
@@ -57,7 +53,19 @@ namespace NtpNeocropsClient
 
                 if (data != null)
                 {
-                    MessageBox.Show($"Welcome, {data.User.FullName}!");
+                    var cred = new Credential
+                    {
+                        Target = "Neocrops",
+                        Username = data.User.Email,
+                        Password = data.RefreshToken,
+                        Type = CredentialType.Generic,
+                        PersistanceType = PersistanceType.LocalComputer
+                    };
+                    cred.Save();
+
+                    this.Hide();
+                    ForecastForm forecastForm = new ForecastForm();
+                    forecastForm.Show();
                 }
             }
             catch (ApiException ex)

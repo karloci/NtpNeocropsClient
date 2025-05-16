@@ -46,7 +46,6 @@
             buttonCreateAccount.Text = "Create account";
             buttonCreateAccount.UseVisualStyleBackColor = true;
             buttonCreateAccount.Click += buttonCreateAccount_Click;
-            buttonCreateAccount.Move += buttonCreateAccount_Move;
             // 
             // label1
             // 

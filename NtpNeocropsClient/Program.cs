@@ -1,3 +1,5 @@
+using CredentialManagement;
+
 namespace NtpNeocropsClient
 {
     internal static class Program
@@ -11,7 +13,16 @@ namespace NtpNeocropsClient
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new LoginForm());
+
+            var cred = new Credential { Target = "Neocrops" };
+            if (cred.Load())
+            {
+                Application.Run(new ForecastForm());
+            }
+            else
+            {
+                Application.Run(new LoginForm());
+            }
         }
     }
 }
