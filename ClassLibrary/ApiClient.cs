@@ -33,17 +33,15 @@ namespace ClassLibrary
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             var response = await httpClient.PostAsync(endpoint, content);
-
             if (response.IsSuccessStatusCode)
             {
                 var responseBody = await response.Content.ReadAsStringAsync();
-                return JsonSerializer.Deserialize<T>(responseBody, new JsonSerializerOptions
-                {
+                return JsonSerializer.Deserialize<T>(responseBody, new JsonSerializerOptions{
                     PropertyNameCaseInsensitive = true
                 });
             }
 
-            throw new HttpRequestException($"{(int)response.StatusCode} - {response.ReasonPhrase}");
+            throw new ApiException(response.StatusCode, $"{response.ReasonPhrase}");
         }
     }
 }

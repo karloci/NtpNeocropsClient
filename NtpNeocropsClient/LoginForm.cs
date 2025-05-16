@@ -1,6 +1,7 @@
 using ClassLibrary;
 using NtpNeocropsClient.Dto;
 using NtpNeocropsClient.Entity;
+using System.Net;
 
 namespace NtpNeocropsClient
 {
@@ -59,10 +60,18 @@ namespace NtpNeocropsClient
                     MessageBox.Show($"Welcome, {data.User.FullName}!");
                 }
             }
-            catch (HttpRequestException ex)
+            catch (ApiException ex)
             {
-                MessageBox.Show(ex.Message);
-                return;
+                if (ex.StatusCode == HttpStatusCode.Unauthorized)
+                {
+                    MessageBox.Show("Wrong email or password!");
+                    return;
+                }
+                else if (ex.StatusCode == HttpStatusCode.InternalServerError)
+                {
+                    MessageBox.Show("Server error!");
+                    return;
+                }
             }
         }
     }
