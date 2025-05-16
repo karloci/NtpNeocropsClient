@@ -1,6 +1,6 @@
 ﻿namespace NtpNeocropsClient
 {
-    partial class ForecastForm
+    partial class AbstractForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,14 @@
         {
             SuspendLayout();
             // 
-            // ForecastForm
+            // AbstractForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Name = "ForecastForm";
-            Text = "Forecast";
+            Name = "AbstractForm";
+            Text = "AbstractForm";
+            Move += AbstractForm_Move;
             ResumeLayout(false);
         }
 

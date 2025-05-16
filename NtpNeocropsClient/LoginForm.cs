@@ -6,17 +6,11 @@ using System.Net;
 
 namespace NtpNeocropsClient
 {
-    public partial class LoginForm : Form
+    public partial class LoginForm : AbstractForm
     {
-        public LoginForm()
+        public LoginForm(): base()
         {
             InitializeComponent();
-            WindowPosition.LoadWindowPosition(this);
-        }
-
-        private void LoginForm_Move(object sender, EventArgs e)
-        {
-            WindowPosition.SaveWindowPosition(this);
         }
 
         private void buttonCreateAccount_Click(object sender, EventArgs e)

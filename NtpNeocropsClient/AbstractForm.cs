@@ -1,5 +1,4 @@
 ﻿using ClassLibrary;
-using CredentialManagement;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,11 +11,17 @@ using System.Windows.Forms;
 
 namespace NtpNeocropsClient
 {
-    public partial class ForecastForm : AuthAbstractForm
+    public partial class AbstractForm : Form
     {
-        public ForecastForm(): base()
+        public AbstractForm()
         {
             InitializeComponent();
+            WindowPosition.LoadWindowPosition(this);
+        }
+
+        private void AbstractForm_Move(object sender, EventArgs e)
+        {
+            WindowPosition.SaveWindowPosition(this);
         }
     }
 }

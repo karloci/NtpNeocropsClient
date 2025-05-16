@@ -13,12 +13,11 @@ using System.Windows.Forms;
 
 namespace NtpNeocropsClient
 {
-    public partial class RegisterForm : Form
+    public partial class RegisterForm : AbstractForm
     {
-        public RegisterForm()
+        public RegisterForm(): base()
         {
             InitializeComponent();
-            WindowPosition.LoadWindowPosition(this);
         }
 
         private void buttonBackToLogin_Click(object sender, EventArgs e)
@@ -26,11 +25,6 @@ namespace NtpNeocropsClient
             this.Hide();
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
-        }
-
-        private void RegisterForm_Move(object sender, EventArgs e)
-        {
-            WindowPosition.SaveWindowPosition(this);
         }
 
         private async void RegisterForm_Load(object sender, EventArgs e)
