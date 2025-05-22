@@ -1,0 +1,204 @@
+<html xmlns:wso="http://www.dataaccess.com/schemas/WebServiceMetaData">
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script>
+          function submitTestFormWithJSONOutput()
+          {
+            var oldAction=document.testForm.action;
+            document.testForm.action+="/JSON/debug";
+            document.testForm.method="GET";
+            document.testForm.submit();
+            document.testForm.action=oldAction;
+            document.testForm.method="POST";
+          }
+        </script>
+    <style type="text/css">
+                    body
+                    {
+                        margin-left: 2em;
+                    }                
+                    h1
+                    {
+                        margin-left: -0.8em;
+                    }                
+                    h2
+                    {
+                        margin-left: -0.8em;
+                        border-top: 1px solid;
+                    }                
+                    h3
+                    {
+                        margin-left: -0.8em;
+                    }                
+                    .title
+                    {
+                        margin-left: -0.8em;
+                        color: #000080;
+                        font-size: 1.7em;
+                        background-color: #99ccff;
+                        padding-top: 0.3em;
+                        padding-bottom: 0.3em;
+                    } 
+                    .intro
+                    {
+                        margin-left: -0.8em;
+                    }
+                    .frmheader
+                    {
+                        background: #dcdcdc;
+                        padding-top: 0.1em;
+                        padding-bottom: 0.2em;
+                    }
+                    .code
+                    {
+                        font-family: 'Courier New';
+                        background-color: lightyellow;
+                        padding: 0.3em;
+                        white-space: nowrap;
+                    }
+                    font.value
+                    {
+                        color: darkblue;
+                        font: bold;
+                    }
+                    font.key
+                    {
+                        color: darkgreen;
+                        font: bold;
+                    }
+                </style>
+    <title>DataFlex Web Service for Country information</title>
+  </head>
+  <body>
+    <center>
+      <p class="title">DataFlex Web Service for Country information</p>
+    </center>
+    <p class="intro">Click
+          <a href="/websamples.countryinfo/CountryInfoService.wso">here</a>
+                    for a complete list of operations.
+        </p>
+    <h2>ListOfCountryNamesByName</h2>Returns a list of all stored counties ordered by country name<h3>Test</h3>
+        To test the operation using the HTTP POST protocol, click the 'Invoke' button.
+        <form name="testForm" id="testForm" target="_blank" action="/websamples.countryinfo/CountryInfoService.wso/ListOfCountryNamesByName" method="POST">
+      <table frame="box" cellspacing="0" cellpadding="4" style="border-collapse: collapse;" rules="none">
+        <tr>
+          <td class="frmheader" style="border-right: 2px solid white;">Parameter</td><td class="frmheader">Value</td>
+        </tr>
+        <tr>
+          <td></td><td align="right"><input type="submit" value="Invoke" class="button"></td>
+        </tr>
+        <tr>
+          <td></td><td align="right">
+            To view the output in JSON format, <a href="javascript:submitTestFormWithJSONOutput();">click here</a>.
+          </td>
+        </tr>
+      </table>
+    </form>
+    <h3>SOAP 1.1</h3>
+    The following is a sample SOAP 1.1 request and response. The <font class="value">placeholders</font> shown need to be replaced with actual values.<br>
+    <br>
+    <div class="code">
+        POST /websamples.countryinfo/CountryInfoService.wso HTTP/1.1<br>
+        Host: webservices.oorsprong.org<br>
+        Content-Type: text/xml; charset=utf-8<br>
+        Content-Length: <font class="value">length</font>
+      <br>
+      <br>
+        &lt;?xml version="1.0" encoding="utf-8"?&gt;<br>
+        &lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;<br>
+        &nbsp;&nbsp;&lt;soap:Body&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;ListOfCountryNamesByName xmlns="http://www.oorsprong.org/websamples.countryinfo"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/ListOfCountryNamesByName&gt;<br>
+        &nbsp;&nbsp;&lt;/soap:Body&gt;<br>
+        &lt;/soap:Envelope&gt;<br>
+    </div>
+    <br>
+    <div class="code">
+        HTTP/1.1 200 OK<br>
+        Content-Type: text/xml; charset=utf-8<br>
+        Content-Length: <font class="value">length</font>
+      <br>
+      <br>
+        &lt;?xml version="1.0" encoding="utf-8"?&gt;<br>
+        &lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;<br>
+        &nbsp;&nbsp;&lt;soap:Body&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;ListOfCountryNamesByNameResponse xmlns="http://www.oorsprong.org/websamples.countryinfo"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ListOfCountryNamesByNameResult&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tCountryCodeAndName&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;sISOCode&gt;<font class="value">string</font>&lt;/sISOCode&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;sName&gt;<font class="value">string</font>&lt;/sName&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tCountryCodeAndName&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tCountryCodeAndName&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;sISOCode&gt;<font class="value">string</font>&lt;/sISOCode&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;sName&gt;<font class="value">string</font>&lt;/sName&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tCountryCodeAndName&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ListOfCountryNamesByNameResult&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/ListOfCountryNamesByNameResponse&gt;<br>
+        &nbsp;&nbsp;&lt;/soap:Body&gt;<br>
+        &lt;/soap:Envelope&gt;<br>
+    </div>
+    <h3>SOAP 1.2</h3>
+    The following is a sample SOAP 1.2 request and response. The <font class="value">placeholders</font> shown need to be replaced with actual values.<br>
+    <br>
+    <div class="code">
+        POST /websamples.countryinfo/CountryInfoService.wso HTTP/1.1<br>
+        Host: webservices.oorsprong.org<br>
+        Content-Type: application/soap+xml; charset=utf-8<br>
+        Content-Length: <font class="value">length</font>
+      <br>
+      <br>
+        &lt;?xml version="1.0" encoding="utf-8"?&gt;<br>
+        &lt;soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope"&gt;<br>
+        &nbsp;&nbsp;&lt;soap12:Body&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;ListOfCountryNamesByName xmlns="http://www.oorsprong.org/websamples.countryinfo"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/ListOfCountryNamesByName&gt;<br>
+        &nbsp;&nbsp;&lt;/soap12:Body&gt;<br>
+        &lt;/soap12:Envelope&gt;<br>
+    </div>
+    <br>
+    <div class="code">
+        HTTP/1.1 200 OK<br>
+        Content-Type: application/soap+xml; charset=utf-8<br>
+        Content-Length: <font class="value">length</font>
+      <br>
+      <br>
+        &lt;?xml version="1.0" encoding="utf-8"?&gt;<br>
+        &lt;soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope"&gt;<br>
+        &nbsp;&nbsp;&lt;soap12:Body&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;ListOfCountryNamesByNameResponse xmlns="http://www.oorsprong.org/websamples.countryinfo"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ListOfCountryNamesByNameResult&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tCountryCodeAndName&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;sISOCode&gt;<font class="value">string</font>&lt;/sISOCode&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;sName&gt;<font class="value">string</font>&lt;/sName&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tCountryCodeAndName&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tCountryCodeAndName&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;sISOCode&gt;<font class="value">string</font>&lt;/sISOCode&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;sName&gt;<font class="value">string</font>&lt;/sName&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tCountryCodeAndName&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ListOfCountryNamesByNameResult&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/ListOfCountryNamesByNameResponse&gt;<br>
+        &nbsp;&nbsp;&lt;/soap12:Body&gt;<br>
+        &lt;/soap12:Envelope&gt;<br>
+    </div>
+    <h3>JSON</h3>
+
+       The following is a sample JSON request and response. The <font class="value">placeholders</font> shown need to be replaced with actual values.<br>
+    <br>
+    <div class="code">
+			POST /websamples.countryinfo/CountryInfoService.wso HTTP/1.1<br>
+			Host: webservices.oorsprong.org<br>
+			Content-Type: application/json; charset=utf-8<br>
+			Content-Length: <font class="value">length</font>
+      <br>
+    </div>
+    <br>
+    <div class="code">
+          HTTP/1.1 200 OK<br>
+          Content-Type: application/json; charset=utf-8<br>
+          Content-Length: <font class="value">length</font>
+      <br>
+      <br>
+    [<br>&nbsp;&nbsp;
+      {
+      &nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;
+    "sISOCode":
+    <font class="value">string</font>
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;
+    "sName":
+    <font class="value">string</font>
+      <br>&nbsp;&nbsp;
+      },<br>&nbsp;&nbsp;
+      {
+      &nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;
+    "sISOCode":
+    <font class="value">string</font>
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;
+    "sName":
+    <font class="value">string</font>
+      <br>&nbsp;&nbsp;
+      }
+    <br>
+    ]
+  </div>
+  </body>
+</html>
