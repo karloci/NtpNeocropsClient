@@ -2,6 +2,7 @@ using ClassLibrary;
 using CredentialManagement;
 using NtpNeocropsClient.Dto;
 using NtpNeocropsClient.Entity;
+using NtpNeocropsClient.Utils;
 using System.Net;
 
 namespace NtpNeocropsClient
@@ -63,6 +64,9 @@ namespace NtpNeocropsClient
                     };
                     cred.Save();
 
+                    NeocropsState.LoggedInUser = data.User;
+
+                    this.Hide();
                     ForecastForm forecastForm = new ForecastForm();
                     forecastForm.Show();
                     this.Hide();
