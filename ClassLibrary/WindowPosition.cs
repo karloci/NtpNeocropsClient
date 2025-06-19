@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -32,6 +33,7 @@ namespace ClassLibrary
 
         public static void SaveWindowPosition(Form form)
         {
+            Debug.WriteLine($"Save left: {form.Left.ToString()}, Save top: {form.Top.ToString()}");
             WritePrivateProfileString("WindowPosition", "Left", form.Left.ToString(), IniPath);
             WritePrivateProfileString("WindowPosition", "Top", form.Top.ToString(), IniPath);
         }
@@ -46,9 +48,14 @@ namespace ClassLibrary
 
             if (int.TryParse(left.ToString(), out int l) && int.TryParse(top.ToString(), out int t))
             {
+                Debug.WriteLine($"Load left: {l}, Load top: {t}");
                 form.StartPosition = FormStartPosition.Manual;
                 form.Left = l;
                 form.Top = t;
+            }
+            else
+            {
+                Debug.WriteLine("WindowPosition failed!");
             }
         }
     }

@@ -114,6 +114,7 @@
             Controls.Add(buttonCreateAccount);
             Name = "LoginForm";
             Text = "Login";
+            Move += LoginForm_Move;
             ResumeLayout(false);
             PerformLayout();
         }

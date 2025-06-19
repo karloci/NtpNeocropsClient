@@ -13,18 +13,24 @@ using System.Windows.Forms;
 
 namespace NtpNeocropsClient
 {
-    public partial class RegisterForm : AbstractForm
+    public partial class RegisterForm : Form
     {
-        public RegisterForm(): base()
+        public RegisterForm() : base()
         {
             InitializeComponent();
+            WindowPosition.LoadWindowPosition(this);
+        }
+
+        private void RegisterForm_Move(object sender, EventArgs e)
+        {
+            WindowPosition.SaveWindowPosition(this);
         }
 
         private void buttonBackToLogin_Click(object sender, EventArgs e)
         {
-            this.Hide();
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+            this.Hide();
         }
 
         private async void RegisterForm_Load(object sender, EventArgs e)
@@ -117,9 +123,9 @@ namespace NtpNeocropsClient
             string farmId = textBoxFarmId.Text;
             string country = comboBoxCountry.SelectedValue?.ToString() ?? "";
 
-            if(
-                !Validator.IsRequired(fullName) 
-                || !Validator.IsRequired(email) 
+            if (
+                !Validator.IsRequired(fullName)
+                || !Validator.IsRequired(email)
                 || !Validator.IsRequired(password)
                 || !Validator.IsRequired(repeatPassword)
                 || !Validator.IsRequired(farmName)
@@ -131,7 +137,7 @@ namespace NtpNeocropsClient
                 return;
             }
 
-            if( !Validator.IsValidEmail(email) )
+            if (!Validator.IsValidEmail(email))
             {
                 MessageBox.Show("Email is not in correct format!");
                 return;

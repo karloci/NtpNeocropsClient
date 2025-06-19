@@ -217,6 +217,7 @@
             Name = "RegisterForm";
             Text = "Register";
             Load += RegisterForm_Load;
+            Move += RegisterForm_Move;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -30,14 +30,14 @@
         {
             menuStrip1 = new MenuStrip();
             accountToolStripMenuItem = new ToolStripMenuItem();
-            profileToolStripMenuItem = new ToolStripMenuItem();
             logoutToolStripMenuItem = new ToolStripMenuItem();
+            dashboardToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { accountToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { accountToolStripMenuItem, dashboardToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 24);
@@ -46,24 +46,24 @@
             // 
             // accountToolStripMenuItem
             // 
-            accountToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { profileToolStripMenuItem, logoutToolStripMenuItem });
+            accountToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { logoutToolStripMenuItem });
             accountToolStripMenuItem.Name = "accountToolStripMenuItem";
             accountToolStripMenuItem.Size = new Size(64, 20);
             accountToolStripMenuItem.Text = "Account";
             // 
-            // profileToolStripMenuItem
-            // 
-            profileToolStripMenuItem.Name = "profileToolStripMenuItem";
-            profileToolStripMenuItem.Size = new Size(180, 22);
-            profileToolStripMenuItem.Text = "Profile";
-            profileToolStripMenuItem.Click += profileToolStripMenuItem_Click;
-            // 
             // logoutToolStripMenuItem
             // 
             logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            logoutToolStripMenuItem.Size = new Size(180, 22);
+            logoutToolStripMenuItem.Size = new Size(112, 22);
             logoutToolStripMenuItem.Text = "Logout";
             logoutToolStripMenuItem.Click += logoutToolStripMenuItem_Click;
+            // 
+            // dashboardToolStripMenuItem
+            // 
+            dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
+            dashboardToolStripMenuItem.Size = new Size(76, 20);
+            dashboardToolStripMenuItem.Text = "Dashboard";
+            dashboardToolStripMenuItem.Click += dashboardToolStripMenuItem_Click;
             // 
             // AuthAbstractForm
             // 
@@ -74,6 +74,8 @@
             MainMenuStrip = menuStrip1;
             Name = "AuthAbstractForm";
             Text = "Neocrops";
+            Load += AuthAbstractForm_Load;
+            Move += AuthAbstractForm_Move;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -84,7 +86,7 @@
 
         private MenuStrip menuStrip1;
         private ToolStripMenuItem accountToolStripMenuItem;
-        private ToolStripMenuItem profileToolStripMenuItem;
         private ToolStripMenuItem logoutToolStripMenuItem;
+        private ToolStripMenuItem dashboardToolStripMenuItem;
     }
 }
