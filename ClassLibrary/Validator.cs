@@ -15,6 +15,16 @@ namespace ClassLibrary
             return !string.IsNullOrWhiteSpace(value) && !string.IsNullOrEmpty(value);
         }
 
+        public static bool HasMinLength(string? value, int minLength)
+        {
+            return value?.Length >= minLength;
+        }
+
+        public static bool HasMaxLength(string? value, int maxLength)
+        {
+            return value?.Length <= maxLength;
+        }
+
         public static bool IsValidEmail(string? email)
         {
             if (string.IsNullOrWhiteSpace(email) || string.IsNullOrEmpty(email))

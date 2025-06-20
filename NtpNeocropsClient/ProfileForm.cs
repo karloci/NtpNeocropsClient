@@ -87,6 +87,18 @@ namespace NtpNeocropsClient
                 return;
             }
 
+            if (!Validator.Equals(newPassword, repeatPassword))
+            {
+                MessageBox.Show("Passwords does not match!");
+                return;
+            }
+
+            if (!Validator.HasMinLength(newPassword, 8) || !Validator.HasMinLength(newPassword, 8))
+            {
+                MessageBox.Show("Passwords should have at least 8 characters");
+                return;
+            }
+
             try
             {
                 var data = await ApiClient.PatchAsync<MessageResponseDto>("/profile/password", new ChangePasswordRequestDto
