@@ -1,28 +1,60 @@
+using ClassLibrary;
 using CredentialManagement;
+using NtpNeocropsClient.Dto;
+using NtpNeocropsClient.Utils;
+using System.Net;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace NtpNeocropsClient
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+            MainAsync().GetAwaiter().GetResult();
+        }
 
+        static async Task MainAsync()
+        {
             var cred = new Credential { Target = "Neocrops" };
             if (cred.Load())
             {
-                Application.Run(new ForecastForm());
+                try
+                {
+                    var data = await ApiClient.PostAsync<AuthenticationResponseDto>(
+                        "/authentication/refresh-token",
+                        new RefreshTokenRequestDto
+                        {
+                            RefreshToken = cred.Password
+                        });
+
+                    if (data != null)
+                    {
+                        var newCred = new Credential
+                        {
+                            Target = "Neocrops",
+                            Username = data.User.Email,
+                            Password = data.RefreshToken,
+                            Type = CredentialType.Generic,
+                            PersistanceType = PersistanceType.LocalComputer
+                        };
+                        newCred.Save();
+
+                        NeocropsState.LoggedInUser = data.User;
+
+                        Application.Run(new ForecastForm());
+                        return;
+                    }
+                }
+                catch (ApiException)
+                {
+                    cred.Delete();
+                }
             }
-            else
-            {
-                Application.Run(new LoginForm());
-            }
+
+            Application.Run(new LoginForm());
         }
     }
 }

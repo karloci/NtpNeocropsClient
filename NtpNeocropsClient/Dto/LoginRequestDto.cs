@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NtpNeocropsClient.Dto
 {
-    internal class AuthenticationRequestDto
+    internal class LoginRequestDto
     {
         [JsonPropertyName("email")]
         public string Email { get; set; } = string.Empty;
