@@ -13,22 +13,11 @@ using System.Windows.Forms;
 
 namespace NtpNeocropsClient
 {
-    public partial class AuthAbstractForm : Form
+    public partial class AuthAbstractForm : AbstractForm
     {
         public AuthAbstractForm() : base()
         {
             InitializeComponent();
-            WindowPosition.LoadWindowPosition(this);
-        }
-
-        private void AuthAbstractForm_Load(object sender, EventArgs e)
-        {
-            WindowPosition.LoadWindowPosition(this);
-        }
-
-        private void AuthAbstractForm_Move(object sender, EventArgs e)
-        {
-            WindowPosition.SaveWindowPosition(this);
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)

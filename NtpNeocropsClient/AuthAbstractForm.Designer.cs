@@ -74,8 +74,6 @@
             MainMenuStrip = menuStrip1;
             Name = "AuthAbstractForm";
             Text = "Neocrops";
-            Load += AuthAbstractForm_Load;
-            Move += AuthAbstractForm_Move;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);

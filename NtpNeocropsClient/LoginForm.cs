@@ -4,27 +4,22 @@ using NtpNeocropsClient.Dto;
 using NtpNeocropsClient.Entity;
 using NtpNeocropsClient.Utils;
 using System.Net;
+using System.Windows.Forms;
 
 namespace NtpNeocropsClient
 {
-    public partial class LoginForm : Form
+    public partial class LoginForm : AbstractForm
     {
         public LoginForm() : base()
         {
             InitializeComponent();
-            WindowPosition.LoadWindowPosition(this);
-        }
-
-        private void LoginForm_Move(object sender, EventArgs e)
-        {
-            WindowPosition.SaveWindowPosition(this);
         }
 
         private void buttonCreateAccount_Click(object sender, EventArgs e)
         {
+            this.Hide();
             RegisterForm registerForm = new RegisterForm();
             registerForm.Show();
-            this.Hide();
         }
 
         private async void buttonLogin_Click(object sender, EventArgs e)
@@ -69,7 +64,6 @@ namespace NtpNeocropsClient
                     this.Hide();
                     ForecastForm forecastForm = new ForecastForm();
                     forecastForm.Show();
-                    this.Hide();
                 }
             }
             catch (ApiException ex)
