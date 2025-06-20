@@ -25,7 +25,6 @@ namespace NtpNeocropsClient
             var cred = new Credential { Target = "Neocrops" };
             cred.Delete();
 
-            WindowPosition.SaveWindowPosition(this);
             this.Hide();
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
@@ -33,10 +32,16 @@ namespace NtpNeocropsClient
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            WindowPosition.SaveWindowPosition(this);
             this.Hide();
             ForecastForm forecastForm = new ForecastForm();
             forecastForm.Show();
+        }
+
+        private void profileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ProfileForm profileForm = new ProfileForm();
+            profileForm.Show();
         }
     }
 }
