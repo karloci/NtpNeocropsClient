@@ -22,7 +22,7 @@ namespace ClassLibrary
         {
             httpClient = new HttpClient
             {
-                BaseAddress = new Uri("http://127.0.0.1:8080")
+                BaseAddress = new Uri("http://127.0.0.1:8081")
             };
 
             httpClient.DefaultRequestHeaders.Accept.Clear();
@@ -104,6 +104,25 @@ namespace ClassLibrary
             return response;
         }
 
+        private static async Task HandleErrorResponse(HttpResponseMessage response)
+        {
+            var responseBody = await response.Content.ReadAsStringAsync();
+            string serverMessage = string.Empty;
+
+            try
+            {
+                var errorResponse = JsonSerializer.Deserialize<MessageResponseDto>(responseBody);
+                Debug.WriteLine($"{errorResponse.Message} - {errorResponse.Detail}");
+                serverMessage = errorResponse?.Message ?? errorResponse?.Detail ?? "Server error!";
+            }
+            catch
+            {
+                serverMessage = responseBody;
+            }
+
+            throw new ApiException(response.StatusCode, $"{response.ReasonPhrase}", serverMessage);
+        }
+
         public static async Task<T?> PostAsync<T>(string endpoint, object payload)
         {
             AddAuthorizationHeader();
@@ -126,7 +145,8 @@ namespace ClassLibrary
                 });
             }
 
-            throw new ApiException(response.StatusCode, $"{response.ReasonPhrase}");
+            await HandleErrorResponse(response);
+            return default;
         }
 
         public static async Task<T?> PatchAsync<T>(string endpoint, object payload)
@@ -151,7 +171,8 @@ namespace ClassLibrary
                 });
             }
 
-            throw new ApiException(response.StatusCode, $"{response.ReasonPhrase}");
+            await HandleErrorResponse(response);
+            return default;
         }
 
         public static async Task<T?> GetAsync<T>(string endpoint)
@@ -169,7 +190,8 @@ namespace ClassLibrary
                 });
             }
 
-            throw new ApiException(response.StatusCode, $"{response.ReasonPhrase}");
+            await HandleErrorResponse(response);
+            return default;
         }
     }
 }

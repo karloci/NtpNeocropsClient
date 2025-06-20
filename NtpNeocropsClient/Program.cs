@@ -21,7 +21,7 @@ namespace NtpNeocropsClient
         {
             Credential? cred = NeocropsState.GetCredentials();
 
-            if (cred.Password == null)
+            if (cred?.Password == null)
             {
                 Application.Run(new LoginForm());
             }

@@ -70,7 +70,7 @@ namespace NtpNeocropsClient
             }
             catch (ApiException ex)
             {
-                MessageBox.Show("Server error!");
+                MessageBox.Show(ex.Message);
                 return;
             }
         }

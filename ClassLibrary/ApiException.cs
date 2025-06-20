@@ -10,10 +10,12 @@ namespace ClassLibrary
     public class ApiException: HttpRequestException
     {
         public HttpStatusCode StatusCode { get; }
+        public string ServerMessage { get; }
 
-        public ApiException(HttpStatusCode statusCode, string message): base(message)
+        public ApiException(HttpStatusCode statusCode, string message, string serverMessage = null) : base(serverMessage)
         {
             StatusCode = statusCode;
+            ServerMessage = serverMessage;
         }
     }
 }

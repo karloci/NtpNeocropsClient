@@ -61,16 +61,8 @@ namespace NtpNeocropsClient
             }
             catch (ApiException ex)
             {
-                if (ex.StatusCode == HttpStatusCode.Unauthorized)
-                {
-                    MessageBox.Show("Wrong email or password!");
-                    return;
-                }
-                else if (ex.StatusCode == HttpStatusCode.InternalServerError)
-                {
-                    MessageBox.Show("Server error!");
-                    return;
-                }
+                MessageBox.Show(ex.Message);
+                return;
             }
         }
     }

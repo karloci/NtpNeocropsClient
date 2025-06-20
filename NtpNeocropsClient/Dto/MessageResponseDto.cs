@@ -11,5 +11,7 @@ namespace NtpNeocropsClient.Dto
     {
         [JsonPropertyName("message")]
         public string Message { get; set; } = string.Empty;
+        [JsonPropertyName("detail")]
+        public string? Detail { get; set; } = null;
     }
 }
