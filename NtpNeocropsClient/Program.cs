@@ -2,6 +2,7 @@ using ClassLibrary;
 using CredentialManagement;
 using NtpNeocropsClient.Dto;
 using NtpNeocropsClient.Utils;
+using System.Diagnostics;
 using System.Net;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
@@ -18,24 +19,24 @@ namespace NtpNeocropsClient
 
         static async Task MainAsync()
         {
-            var cred = new Credential { Target = "Neocrops" };
-            if (cred.Load())
+            Credential? cred = NeocropsState.GetCredentials();
+
+            if (cred.Password == null)
+            {
+                Application.Run(new LoginForm());
+            }
+            else
             {
                 try
                 {
-                    var data = await ApiClient.PostAsync<AuthenticationResponseDto>(
-                        "/authentication/refresh-token",
-                        new RefreshTokenRequestDto
-                        {
-                            RefreshToken = cred.Password
-                        });
+                    var data = await ApiClient.PostAsync<AuthenticationResponseDto>("/authentication/refresh-token", new RefreshTokenRequestDto
+                    {
+                        RefreshToken = cred.Password
+                    });
 
                     if (data != null)
                     {
-                        cred.Username = data.User.Email;
-                        cred.Password = data.RefreshToken;
-                        cred.Save();
-
+                        NeocropsState.SaveCredentials(data.User.Email, data.RefreshToken);
                         NeocropsState.LoggedInUser = data.User;
                         NeocropsState.AccessToken = data.AccessToken;
                         NeocropsState.RefreshToken = data.RefreshToken;
@@ -46,11 +47,9 @@ namespace NtpNeocropsClient
                 }
                 catch (ApiException)
                 {
-                    cred.Delete();
+                    Application.Run(new LoginForm());
                 }
             }
-
-            Application.Run(new LoginForm());
         }
     }
 }

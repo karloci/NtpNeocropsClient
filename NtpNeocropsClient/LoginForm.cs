@@ -49,16 +49,7 @@ namespace NtpNeocropsClient
 
                 if (data != null)
                 {
-                    var cred = new Credential
-                    {
-                        Target = "Neocrops",
-                        Username = data.User.Email,
-                        Password = data.RefreshToken,
-                        Type = CredentialType.Generic,
-                        PersistanceType = PersistanceType.LocalComputer
-                    };
-                    cred.Save();
-
+                    NeocropsState.SaveCredentials(data.User.Email, data.RefreshToken);
                     NeocropsState.LoggedInUser = data.User;
                     NeocropsState.AccessToken = data.AccessToken;
                     NeocropsState.RefreshToken = data.RefreshToken;

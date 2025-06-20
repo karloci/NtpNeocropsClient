@@ -62,10 +62,6 @@ namespace NtpNeocropsClient
 
                 if (data != null)
                 {
-                    var cred = new Credential { Target = "Neocrops" };
-                    cred.Username = data.Email;
-                    cred.Save();
-
                     NeocropsState.LoggedInUser = data;
 
                     MessageBox.Show("Successfully saved!");

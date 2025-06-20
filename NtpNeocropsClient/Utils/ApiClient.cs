@@ -1,12 +1,15 @@
-﻿using System;
+﻿using CredentialManagement;
+using NtpNeocropsClient.Dto;
+using NtpNeocropsClient.Utils;
+using System;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using NtpNeocropsClient.Dto;
-using NtpNeocropsClient.Utils;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ClassLibrary
 {
@@ -59,17 +62,19 @@ namespace ClassLibrary
                 if (response.IsSuccessStatusCode)
                 {
                     var responseBody = await response.Content.ReadAsStringAsync();
-                    var authenticationResponse = JsonSerializer.Deserialize<AuthenticationResponseDto>(responseBody);
+                    var data = JsonSerializer.Deserialize<AuthenticationResponseDto>(responseBody);
 
-                    NeocropsState.LoggedInUser = authenticationResponse.User;
-                    NeocropsState.AccessToken = authenticationResponse.AccessToken;
-                    NeocropsState.RefreshToken = authenticationResponse.RefreshToken;
+                    NeocropsState.SaveCredentials(data.User.Email, data.RefreshToken);
+                    NeocropsState.LoggedInUser = data.User;
+                    NeocropsState.AccessToken = data.AccessToken;
+                    NeocropsState.RefreshToken = data.RefreshToken;
 
                     return true;
                 }
 
                 if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
                 {
+                    NeocropsState.DeleteCredentials();
                     NeocropsState.LoggedInUser = null;
                     NeocropsState.AccessToken = null;
                     NeocropsState.RefreshToken = null;
