@@ -35,7 +35,7 @@ namespace NtpNeocropsClient
             }
         }
 
-        private void buttonSave_Click(object sender, EventArgs e)
+        private async void buttonSave_Click(object sender, EventArgs e)
         {
             string fullName = textBoxFullName.Text;
             string email = textBoxEmail.Text;
@@ -54,20 +54,28 @@ namespace NtpNeocropsClient
 
             try
             {
+                var data = await ApiClient.PatchAsync<User>("/profile", new UpdateProfileRequestDto
+                {
+                    FullName = fullName,
+                    Email = email,
+                });
 
+                if (data != null)
+                {
+                    var cred = new Credential { Target = "Neocrops" };
+                    cred.Username = data.Email;
+                    cred.Save();
+
+                    NeocropsState.LoggedInUser = data;
+
+                    MessageBox.Show("Successfully saved!");
+                    return;
+                }
             }
             catch (ApiException ex)
             {
-                if (ex.StatusCode == HttpStatusCode.Unauthorized)
-                {
-                    MessageBox.Show("Wrong email or password!");
-                    return;
-                }
-                else if (ex.StatusCode == HttpStatusCode.InternalServerError)
-                {
-                    MessageBox.Show("Server error!");
-                    return;
-                }
+                MessageBox.Show("Server error!");
+                return;
             }
         }
     }

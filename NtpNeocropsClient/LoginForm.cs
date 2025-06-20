@@ -60,6 +60,7 @@ namespace NtpNeocropsClient
                     cred.Save();
 
                     NeocropsState.LoggedInUser = data.User;
+                    NeocropsState.AccessToken = data.AccessToken;
 
                     this.Hide();
                     ForecastForm forecastForm = new ForecastForm();

@@ -32,17 +32,12 @@ namespace NtpNeocropsClient
 
                     if (data != null)
                     {
-                        var newCred = new Credential
-                        {
-                            Target = "Neocrops",
-                            Username = data.User.Email,
-                            Password = data.RefreshToken,
-                            Type = CredentialType.Generic,
-                            PersistanceType = PersistanceType.LocalComputer
-                        };
-                        newCred.Save();
+                        cred.Username = data.User.Email;
+                        cred.Password = data.RefreshToken;
+                        cred.Save();
 
                         NeocropsState.LoggedInUser = data.User;
+                        NeocropsState.AccessToken = data.AccessToken;
 
                         Application.Run(new ForecastForm());
                         return;

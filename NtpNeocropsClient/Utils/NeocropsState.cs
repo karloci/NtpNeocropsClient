@@ -10,5 +10,6 @@ namespace NtpNeocropsClient.Utils
     internal class NeocropsState
     {
         public static User LoggedInUser { get; set; }
+        public static string AccessToken { get; set; }
     }
 }
