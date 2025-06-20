@@ -74,5 +74,42 @@ namespace NtpNeocropsClient
                 return;
             }
         }
+
+        private async void buttonChangePassword_Click(object sender, EventArgs e)
+        {
+            string currentPassword = textBoxCurrentPassword.Text;
+            string newPassword = textBoxNewPassword.Text;
+            string repeatPassword = textBoxRepeatNewPassword.Text;
+
+            if (!Validator.IsRequired(currentPassword) || !Validator.IsRequired(newPassword) || !Validator.IsRequired(repeatPassword))
+            {
+                MessageBox.Show("All fields are required!");
+                return;
+            }
+
+            try
+            {
+                var data = await ApiClient.PatchAsync<MessageResponseDto>("/profile/password", new ChangePasswordRequestDto
+                {
+                    CurrentPassword = currentPassword,
+                    NewPassword = newPassword,
+                    RepeatPassword = repeatPassword
+                });
+
+                if (data != null)
+                {
+                    MessageBox.Show(data.Message);
+                    textBoxCurrentPassword.Text = "";
+                    textBoxNewPassword.Text = "";
+                    textBoxRepeatNewPassword.Text = "";
+                    return;
+                }
+            }
+            catch (ApiException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
     }
 }

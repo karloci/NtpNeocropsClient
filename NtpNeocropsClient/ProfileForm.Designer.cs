@@ -41,7 +41,7 @@
             textBoxNewPassword = new TextBox();
             label7 = new Label();
             textBoxRepeatNewPassword = new TextBox();
-            button1 = new Button();
+            buttonChangePassword = new Button();
             SuspendLayout();
             // 
             // label1
@@ -157,21 +157,22 @@
             textBoxRepeatNewPassword.Size = new Size(358, 23);
             textBoxRepeatNewPassword.TabIndex = 13;
             // 
-            // button1
+            // buttonChangePassword
             // 
-            button1.Location = new Point(651, 290);
-            button1.Name = "button1";
-            button1.Size = new Size(137, 23);
-            button1.TabIndex = 14;
-            button1.Text = "Change password";
-            button1.UseVisualStyleBackColor = true;
+            buttonChangePassword.Location = new Point(651, 290);
+            buttonChangePassword.Name = "buttonChangePassword";
+            buttonChangePassword.Size = new Size(137, 23);
+            buttonChangePassword.TabIndex = 14;
+            buttonChangePassword.Text = "Change password";
+            buttonChangePassword.UseVisualStyleBackColor = true;
+            buttonChangePassword.Click += buttonChangePassword_Click;
             // 
             // ProfileForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button1);
+            Controls.Add(buttonChangePassword);
             Controls.Add(textBoxRepeatNewPassword);
             Controls.Add(label7);
             Controls.Add(textBoxNewPassword);
@@ -202,7 +203,7 @@
             Controls.SetChildIndex(textBoxNewPassword, 0);
             Controls.SetChildIndex(label7, 0);
             Controls.SetChildIndex(textBoxRepeatNewPassword, 0);
-            Controls.SetChildIndex(button1, 0);
+            Controls.SetChildIndex(buttonChangePassword, 0);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -222,6 +223,6 @@
         private TextBox textBoxNewPassword;
         private Label label7;
         private TextBox textBoxRepeatNewPassword;
-        private Button button1;
+        private Button buttonChangePassword;
     }
 }
