@@ -41,7 +41,7 @@ namespace NtpNeocropsClient
 
             try
             {
-                var data = await ApiClient.PostAsync<AuthenticationResponseDto>("/login", new AuthenticationRequestDto
+                var data = await ApiClient.PostAsync<AuthenticationResponseDto>("/authentication/login", new AuthenticationRequestDto
                 {
                     Email = email,
                     Password = password
