@@ -1,5 +1,6 @@
 ﻿using ClassLibrary;
 using CredentialManagement;
+using NtpNeocropsClient.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace NtpNeocropsClient
 {
@@ -24,6 +26,10 @@ namespace NtpNeocropsClient
         {
             var cred = new Credential { Target = "Neocrops" };
             cred.Delete();
+
+            NeocropsState.LoggedInUser = null;
+            NeocropsState.AccessToken = null;
+            NeocropsState.RefreshToken = null;
 
             this.Hide();
             LoginForm loginForm = new LoginForm();
