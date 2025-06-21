@@ -87,7 +87,7 @@ namespace NtpNeocropsClient
                 return;
             }
 
-            if (!Validator.Equals(newPassword, repeatPassword))
+            if (!newPassword.Equals(repeatPassword))
             {
                 MessageBox.Show("Passwords does not match!");
                 return;
@@ -95,7 +95,7 @@ namespace NtpNeocropsClient
 
             if (!Validator.HasMinLength(newPassword, 8) || !Validator.HasMinLength(newPassword, 8))
             {
-                MessageBox.Show("Passwords should have at least 8 characters");
+                MessageBox.Show("Password should have at least 8 characters!");
                 return;
             }
 

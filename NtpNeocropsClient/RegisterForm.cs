@@ -1,5 +1,7 @@
 ﻿using ClassLibrary;
+using NtpNeocropsClient.Dto;
 using NtpNeocropsClient.Entity;
+using NtpNeocropsClient.Utils;
 using ServiceReference;
 using System;
 using System.Collections.Generic;
@@ -107,7 +109,7 @@ namespace NtpNeocropsClient
             return countries;
         }
 
-        private void buttonRegister_Click(object sender, EventArgs e)
+        private async void buttonRegister_Click(object sender, EventArgs e)
         {
             string fullName = textBoxFullName.Text;
             string email = textBoxEmail.Text;
@@ -149,8 +151,36 @@ namespace NtpNeocropsClient
                 return;
             }
 
-            MessageBox.Show("OK");
-            return;
+            try
+            {
+                var data = await ApiClient.PostAsync<AuthenticationResponseDto>("/authentication/register", new RegisterRequestDto
+                {
+                    FullName = fullName,
+                    Email = email,
+                    Password = password,
+                    RepeatPassword = repeatPassword,
+                    FarmName = farmName,
+                    FarmOib = farmId,
+                    FarmCountryIsoCode = country,
+                });
+
+                if (data != null)
+                {
+                    NeocropsState.SaveCredentials(data.User.Email, data.RefreshToken);
+                    NeocropsState.LoggedInUser = data.User;
+                    NeocropsState.AccessToken = data.AccessToken;
+                    NeocropsState.RefreshToken = data.RefreshToken;
+
+                    this.Hide();
+                    ForecastForm forecastForm = new ForecastForm();
+                    forecastForm.Show();
+                }
+            }
+            catch (ApiException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
         }
     }
 }
