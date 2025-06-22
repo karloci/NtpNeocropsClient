@@ -109,6 +109,7 @@ namespace NtpNeocropsClient
             string farmName = textBoxFarmName.Text;
             string farmId = textBoxFarmId.Text;
             string country = comboBoxCountry.SelectedValue?.ToString() ?? "";
+            string farmPostalCode = textBoxFarmPostalCode.Text;
 
             if (
                 !Validator.IsRequired(fullName)
@@ -118,6 +119,7 @@ namespace NtpNeocropsClient
                 || !Validator.IsRequired(farmName)
                 || !Validator.IsRequired(farmId)
                 || !Validator.IsRequired(country)
+                || !Validator.IsRequired(farmPostalCode)
             )
             {
                 MessageBox.Show("All fields are required!");
@@ -142,6 +144,12 @@ namespace NtpNeocropsClient
                 return;
             }
 
+            if (!Validator.HasMinLength(farmPostalCode, 5) || !Validator.HasMaxLength(farmPostalCode, 5))
+            {
+                MessageBox.Show("Postal code must have 5 characters!");
+                return;
+            }
+
             try
             {
                 var data = await ApiClient.PostAsync<AuthenticationResponseDto>("/authentication/register", new RegisterRequestDto
@@ -153,6 +161,7 @@ namespace NtpNeocropsClient
                     FarmName = farmName,
                     FarmOib = farmId,
                     FarmCountryIsoCode = country,
+                    FarmPostalCode = farmPostalCode,
                 });
 
                 if (data != null)

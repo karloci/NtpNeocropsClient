@@ -28,5 +28,8 @@ namespace NtpNeocropsClient.Dto
 
         [JsonPropertyName("farmCountryIsoCode")]
         public string FarmCountryIsoCode { get; set; } = string.Empty;
+
+        [JsonPropertyName("farmPostalCode")]
+        public string FarmPostalCode { get; set; } = string.Empty;
     }
 }

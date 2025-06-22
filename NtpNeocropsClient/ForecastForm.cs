@@ -136,7 +136,9 @@ namespace NtpNeocropsClient
             string cacheDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "cache");
             Directory.CreateDirectory(cacheDir);
 
-            string forecastFile = Path.Combine(cacheDir, "forecast.xml");
+            string postalCode = "10000";
+            string countryIsoCode = "HR";
+            string forecastFile = Path.Combine(cacheDir, $"forecast_{postalCode}_{countryIsoCode}.xml");
             if (!(File.Exists(forecastFile) && (DateTime.Now - File.GetLastWriteTime(forecastFile)).TotalMinutes <= 60))
             {
                 var json = await FetchWeatherApiAsync();
@@ -190,7 +192,10 @@ namespace NtpNeocropsClient
         {
             try
             {
-                var url = $"https://api.openweathermap.org/data/2.5/forecast?zip=10000,HR&units=metric&cnt=12&appid=3dbce27eb39a328186906ad65265e65f";
+                string postalCode = "10000";
+                string countryIsoCode = "HR";
+
+                var url = $"https://api.openweathermap.org/data/2.5/forecast?zip={postalCode},{countryIsoCode}&units=metric&cnt=12&appid=3dbce27eb39a328186906ad65265e65f";
 
                 using (var client = new HttpClient())
                 {

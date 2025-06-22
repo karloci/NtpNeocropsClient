@@ -45,6 +45,8 @@
             label7 = new Label();
             buttonRegister = new Button();
             label8 = new Label();
+            textBoxFarmPostalCode = new TextBox();
+            label9 = new Label();
             SuspendLayout();
             // 
             // buttonBackToLogin
@@ -174,7 +176,7 @@
             // 
             // buttonRegister
             // 
-            buttonRegister.Location = new Point(631, 312);
+            buttonRegister.Location = new Point(631, 357);
             buttonRegister.Name = "buttonRegister";
             buttonRegister.Size = new Size(75, 23);
             buttonRegister.TabIndex = 15;
@@ -192,11 +194,29 @@
             label8.TabIndex = 16;
             label8.Text = "Create account!";
             // 
+            // textBoxFarmPostalCode
+            // 
+            textBoxFarmPostalCode.Location = new Point(424, 313);
+            textBoxFarmPostalCode.Name = "textBoxFarmPostalCode";
+            textBoxFarmPostalCode.Size = new Size(282, 23);
+            textBoxFarmPostalCode.TabIndex = 17;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(424, 295);
+            label9.Name = "label9";
+            label9.Size = new Size(68, 15);
+            label9.TabIndex = 18;
+            label9.Text = "Postal code";
+            // 
             // RegisterForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label9);
+            Controls.Add(textBoxFarmPostalCode);
             Controls.Add(label8);
             Controls.Add(buttonRegister);
             Controls.Add(label7);
@@ -215,6 +235,7 @@
             Controls.Add(comboBoxCountry);
             Controls.Add(buttonBackToLogin);
             Name = "RegisterForm";
+            StartPosition = FormStartPosition.Manual;
             Text = "Register";
             Load += RegisterForm_Load;
             ResumeLayout(false);
@@ -240,5 +261,7 @@
         private Label label7;
         private Button buttonRegister;
         private Label label8;
+        private TextBox textBoxFarmPostalCode;
+        private Label label9;
     }
 }
