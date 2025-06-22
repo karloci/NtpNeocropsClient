@@ -1,4 +1,6 @@
-﻿namespace NtpNeocropsClient
+﻿using System.Windows.Forms.DataVisualization.Charting;
+
+namespace NtpNeocropsClient
 {
     partial class ForecastForm
     {
@@ -37,7 +39,9 @@
             ClientSize = new Size(800, 450);
             Name = "ForecastForm";
             Text = "Forecast";
+            Load += ForecastForm_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

@@ -59,7 +59,12 @@ namespace NtpNeocropsClient
             }
             else
             {
-                countries = await LoadCountriesFromSoapAsync();
+                var client = new CountryInfoServiceSoapTypeClient(CountryInfoServiceSoapTypeClient.EndpointConfiguration.CountryInfoServiceSoap);
+                var result = await client.ListOfCountryNamesByNameAsync();
+
+                countries = result.Body.ListOfCountryNamesByNameResult
+                    .Select(c => new Country { Name = c.sName, Code = c.sISOCode })
+                    .ToList();
 
                 using (var fs = new FileStream(countriesFile, FileMode.Create, FileAccess.Write))
                 using (var writer = new BinaryWriter(fs))
@@ -91,20 +96,6 @@ namespace NtpNeocropsClient
                     countries.Add(new Country { Name = name, Code = code });
                 }
             }
-
-            return countries;
-        }
-
-        private async Task<List<Country>> LoadCountriesFromSoapAsync()
-        {
-            var countries = new List<Country>();
-
-            var client = new CountryInfoServiceSoapTypeClient(CountryInfoServiceSoapTypeClient.EndpointConfiguration.CountryInfoServiceSoap);
-            var result = await client.ListOfCountryNamesByNameAsync();
-
-            countries = result.Body.ListOfCountryNamesByNameResult
-                .Select(c => new Country { Name = c.sName, Code = c.sISOCode })
-                .ToList();
 
             return countries;
         }
