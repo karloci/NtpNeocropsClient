@@ -30,15 +30,14 @@ namespace NtpNeocropsClient
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ForecastForm));
             SuspendLayout();
             // 
             // ForecastForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
             Name = "ForecastForm";
-            Text = "Forecast";
             Load += ForecastForm_Load;
             ResumeLayout(false);
             PerformLayout();
