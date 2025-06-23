@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Net.Http;
+using System.Security.Policy;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -136,8 +137,8 @@ namespace NtpNeocropsClient
             string cacheDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "cache");
             Directory.CreateDirectory(cacheDir);
 
-            string postalCode = "10000";
-            string countryIsoCode = "HR";
+            string postalCode = NeocropsState.LoggedInUser.UserFarm.PostalCode;
+            string countryIsoCode = NeocropsState.LoggedInUser.UserFarm.CountryIsoCode;
             string forecastFile = Path.Combine(cacheDir, $"forecast_{postalCode}_{countryIsoCode}.xml");
             if (!(File.Exists(forecastFile) && (DateTime.Now - File.GetLastWriteTime(forecastFile)).TotalMinutes <= 60))
             {
@@ -192,9 +193,8 @@ namespace NtpNeocropsClient
         {
             try
             {
-                string postalCode = "10000";
-                string countryIsoCode = "HR";
-
+                string postalCode = NeocropsState.LoggedInUser.UserFarm.PostalCode;
+                string countryIsoCode = NeocropsState.LoggedInUser.UserFarm.CountryIsoCode;
                 var url = $"https://api.openweathermap.org/data/2.5/forecast?zip={postalCode},{countryIsoCode}&units=metric&cnt=12&appid=3dbce27eb39a328186906ad65265e65f";
 
                 using (var client = new HttpClient())
@@ -205,6 +205,7 @@ namespace NtpNeocropsClient
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex.Message);
                 MessageBox.Show(ex.Message);
                 throw;
             }
