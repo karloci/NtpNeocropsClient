@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterForm));
             buttonBackToLogin = new Button();
             comboBoxCountry = new ComboBox();
             label1 = new Label();
@@ -51,170 +52,108 @@
             // 
             // buttonBackToLogin
             // 
-            buttonBackToLogin.Location = new Point(679, 415);
+            resources.ApplyResources(buttonBackToLogin, "buttonBackToLogin");
             buttonBackToLogin.Name = "buttonBackToLogin";
-            buttonBackToLogin.Size = new Size(109, 23);
-            buttonBackToLogin.TabIndex = 0;
-            buttonBackToLogin.Text = "Back to Login";
             buttonBackToLogin.UseVisualStyleBackColor = true;
             buttonBackToLogin.Click += buttonBackToLogin_Click;
             // 
             // comboBoxCountry
             // 
+            resources.ApplyResources(comboBoxCountry, "comboBoxCountry");
             comboBoxCountry.FormattingEnabled = true;
-            comboBoxCountry.Location = new Point(424, 248);
             comboBoxCountry.Name = "comboBoxCountry";
-            comboBoxCountry.Size = new Size(282, 23);
-            comboBoxCountry.TabIndex = 1;
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(112, 100);
+            resources.ApplyResources(label1, "label1");
             label1.Name = "label1";
-            label1.Size = new Size(59, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Full name";
             // 
             // textBoxFullName
             // 
-            textBoxFullName.Location = new Point(112, 118);
+            resources.ApplyResources(textBoxFullName, "textBoxFullName");
             textBoxFullName.Name = "textBoxFullName";
-            textBoxFullName.Size = new Size(282, 23);
-            textBoxFullName.TabIndex = 3;
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(112, 164);
+            resources.ApplyResources(label2, "label2");
             label2.Name = "label2";
-            label2.Size = new Size(36, 15);
-            label2.TabIndex = 4;
-            label2.Text = "Email";
             // 
             // textBoxEmail
             // 
-            textBoxEmail.Location = new Point(112, 182);
+            resources.ApplyResources(textBoxEmail, "textBoxEmail");
             textBoxEmail.Name = "textBoxEmail";
-            textBoxEmail.Size = new Size(282, 23);
-            textBoxEmail.TabIndex = 5;
             // 
             // label3
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(112, 230);
+            resources.ApplyResources(label3, "label3");
             label3.Name = "label3";
-            label3.Size = new Size(57, 15);
-            label3.TabIndex = 6;
-            label3.Text = "Password";
             // 
             // textBoxPassword
             // 
-            textBoxPassword.Location = new Point(112, 248);
+            resources.ApplyResources(textBoxPassword, "textBoxPassword");
             textBoxPassword.Name = "textBoxPassword";
-            textBoxPassword.PasswordChar = '*';
-            textBoxPassword.Size = new Size(282, 23);
-            textBoxPassword.TabIndex = 7;
             // 
             // label4
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(112, 295);
+            resources.ApplyResources(label4, "label4");
             label4.Name = "label4";
-            label4.Size = new Size(96, 15);
-            label4.TabIndex = 8;
-            label4.Text = "Repeat password";
             // 
             // textBoxRepeatPassword
             // 
-            textBoxRepeatPassword.Location = new Point(112, 313);
+            resources.ApplyResources(textBoxRepeatPassword, "textBoxRepeatPassword");
             textBoxRepeatPassword.Name = "textBoxRepeatPassword";
-            textBoxRepeatPassword.PasswordChar = '*';
-            textBoxRepeatPassword.Size = new Size(282, 23);
-            textBoxRepeatPassword.TabIndex = 9;
             // 
             // label5
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(424, 100);
+            resources.ApplyResources(label5, "label5");
             label5.Name = "label5";
-            label5.Size = new Size(67, 15);
-            label5.TabIndex = 10;
-            label5.Text = "Farm name";
             // 
             // textBoxFarmName
             // 
-            textBoxFarmName.Location = new Point(424, 118);
+            resources.ApplyResources(textBoxFarmName, "textBoxFarmName");
             textBoxFarmName.Name = "textBoxFarmName";
-            textBoxFarmName.Size = new Size(282, 23);
-            textBoxFarmName.TabIndex = 11;
             // 
             // label6
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(424, 164);
+            resources.ApplyResources(label6, "label6");
             label6.Name = "label6";
-            label6.Size = new Size(48, 15);
-            label6.TabIndex = 12;
-            label6.Text = "Farm ID";
             // 
             // textBoxFarmId
             // 
-            textBoxFarmId.Location = new Point(424, 182);
+            resources.ApplyResources(textBoxFarmId, "textBoxFarmId");
             textBoxFarmId.Name = "textBoxFarmId";
-            textBoxFarmId.Size = new Size(282, 23);
-            textBoxFarmId.TabIndex = 13;
             // 
             // label7
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(424, 230);
+            resources.ApplyResources(label7, "label7");
             label7.Name = "label7";
-            label7.Size = new Size(50, 15);
-            label7.TabIndex = 14;
-            label7.Text = "Country";
             // 
             // buttonRegister
             // 
-            buttonRegister.Location = new Point(631, 357);
+            resources.ApplyResources(buttonRegister, "buttonRegister");
             buttonRegister.Name = "buttonRegister";
-            buttonRegister.Size = new Size(75, 23);
-            buttonRegister.TabIndex = 15;
-            buttonRegister.Text = "Register";
             buttonRegister.UseVisualStyleBackColor = true;
             buttonRegister.Click += buttonRegister_Click;
             // 
             // label8
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(304, 29);
+            resources.ApplyResources(label8, "label8");
             label8.Name = "label8";
-            label8.Size = new Size(209, 37);
-            label8.TabIndex = 16;
-            label8.Text = "Create account!";
             // 
             // textBoxFarmPostalCode
             // 
-            textBoxFarmPostalCode.Location = new Point(424, 313);
+            resources.ApplyResources(textBoxFarmPostalCode, "textBoxFarmPostalCode");
             textBoxFarmPostalCode.Name = "textBoxFarmPostalCode";
-            textBoxFarmPostalCode.Size = new Size(282, 23);
-            textBoxFarmPostalCode.TabIndex = 17;
             // 
             // label9
             // 
-            label9.AutoSize = true;
-            label9.Location = new Point(424, 295);
+            resources.ApplyResources(label9, "label9");
             label9.Name = "label9";
-            label9.Size = new Size(68, 15);
-            label9.TabIndex = 18;
-            label9.Text = "Postal code";
             // 
             // RegisterForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
             Controls.Add(label9);
             Controls.Add(textBoxFarmPostalCode);
             Controls.Add(label8);
@@ -235,8 +174,6 @@
             Controls.Add(comboBoxCountry);
             Controls.Add(buttonBackToLogin);
             Name = "RegisterForm";
-            StartPosition = FormStartPosition.Manual;
-            Text = "Register";
             Load += RegisterForm_Load;
             ResumeLayout(false);
             PerformLayout();

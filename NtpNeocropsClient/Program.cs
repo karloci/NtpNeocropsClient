@@ -1,10 +1,14 @@
 using ClassLibrary;
 using CredentialManagement;
+using Microsoft.Win32;
 using NtpNeocropsClient.Dto;
+using NtpNeocropsClient.Entity;
 using NtpNeocropsClient.Utils;
 using System.Diagnostics;
+using System.Globalization;
 using System.Net;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace NtpNeocropsClient
 {
@@ -19,6 +23,16 @@ namespace NtpNeocropsClient
 
         static async Task MainAsync()
         {
+            using (var key = Registry.CurrentUser.OpenSubKey(@"Software\NeocropsApp\Language"))
+            {
+                var preferedLanguage = key?.GetValue("Language") as string ?? "en";
+
+                var culture = new CultureInfo(preferedLanguage);
+                Thread.CurrentThread.CurrentCulture = culture;
+                Thread.CurrentThread.CurrentUICulture = culture;
+            }
+
+
             Credential? cred = NeocropsState.GetCredentials();
 
             if (cred?.Password == null)

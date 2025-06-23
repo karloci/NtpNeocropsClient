@@ -36,7 +36,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Name = "AbstractForm";
-            Text = "AbstractForm";
+            Text = "Neocrops";
             FormClosing += AbstractForm_FormClosing;
             FormClosed += AbstractForm_FormClosed;
             Load += AbstractForm_Load;

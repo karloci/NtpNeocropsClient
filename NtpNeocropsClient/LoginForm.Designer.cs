@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             buttonCreateAccount = new Button();
             label1 = new Label();
             textBoxEmail = new TextBox();
@@ -35,76 +36,67 @@
             textBoxPassword = new TextBox();
             buttonLogin = new Button();
             label3 = new Label();
+            labelLanguage = new Label();
+            comboBoxLanguage = new ComboBox();
             SuspendLayout();
             // 
             // buttonCreateAccount
             // 
-            buttonCreateAccount.Location = new Point(671, 415);
+            resources.ApplyResources(buttonCreateAccount, "buttonCreateAccount");
             buttonCreateAccount.Name = "buttonCreateAccount";
-            buttonCreateAccount.Size = new Size(117, 23);
-            buttonCreateAccount.TabIndex = 0;
-            buttonCreateAccount.Text = "Create account";
             buttonCreateAccount.UseVisualStyleBackColor = true;
             buttonCreateAccount.Click += buttonCreateAccount_Click;
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(273, 126);
+            resources.ApplyResources(label1, "label1");
             label1.Name = "label1";
-            label1.Size = new Size(36, 15);
-            label1.TabIndex = 1;
-            label1.Text = "Email";
             // 
             // textBoxEmail
             // 
-            textBoxEmail.Location = new Point(273, 144);
+            resources.ApplyResources(textBoxEmail, "textBoxEmail");
             textBoxEmail.Name = "textBoxEmail";
-            textBoxEmail.Size = new Size(257, 23);
-            textBoxEmail.TabIndex = 2;
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(273, 187);
+            resources.ApplyResources(label2, "label2");
             label2.Name = "label2";
-            label2.Size = new Size(57, 15);
-            label2.TabIndex = 3;
-            label2.Text = "Password";
             // 
             // textBoxPassword
             // 
-            textBoxPassword.Location = new Point(273, 205);
+            resources.ApplyResources(textBoxPassword, "textBoxPassword");
             textBoxPassword.Name = "textBoxPassword";
-            textBoxPassword.PasswordChar = '*';
-            textBoxPassword.Size = new Size(257, 23);
-            textBoxPassword.TabIndex = 4;
             // 
             // buttonLogin
             // 
-            buttonLogin.Location = new Point(455, 262);
+            resources.ApplyResources(buttonLogin, "buttonLogin");
             buttonLogin.Name = "buttonLogin";
-            buttonLogin.Size = new Size(75, 23);
-            buttonLogin.TabIndex = 5;
-            buttonLogin.Text = "Login";
             buttonLogin.UseVisualStyleBackColor = true;
             buttonLogin.Click += buttonLogin_Click;
             // 
             // label3
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(336, 35);
+            resources.ApplyResources(label3, "label3");
             label3.Name = "label3";
-            label3.Size = new Size(130, 37);
-            label3.TabIndex = 6;
-            label3.Text = "Welcome";
+            // 
+            // labelLanguage
+            // 
+            resources.ApplyResources(labelLanguage, "labelLanguage");
+            labelLanguage.Name = "labelLanguage";
+            // 
+            // comboBoxLanguage
+            // 
+            resources.ApplyResources(comboBoxLanguage, "comboBoxLanguage");
+            comboBoxLanguage.FormattingEnabled = true;
+            comboBoxLanguage.Name = "comboBoxLanguage";
+            comboBoxLanguage.SelectedIndexChanged += comboBoxLanguage_SelectedIndexChanged;
             // 
             // LoginForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            Controls.Add(comboBoxLanguage);
+            Controls.Add(labelLanguage);
             Controls.Add(label3);
             Controls.Add(buttonLogin);
             Controls.Add(textBoxPassword);
@@ -113,7 +105,6 @@
             Controls.Add(label1);
             Controls.Add(buttonCreateAccount);
             Name = "LoginForm";
-            Text = "Login";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -127,5 +118,7 @@
         private TextBox textBoxPassword;
         private Button buttonLogin;
         private Label label3;
+        private Label labelLanguage;
+        private ComboBox comboBoxLanguage;
     }
 }

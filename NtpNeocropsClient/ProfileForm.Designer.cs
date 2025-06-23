@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfileForm));
             label1 = new Label();
             label2 = new Label();
             textBoxFullName = new TextBox();
@@ -46,132 +47,82 @@
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(12, 45);
+            resources.ApplyResources(label1, "label1");
             label1.Name = "label1";
-            label1.Size = new Size(142, 30);
-            label1.TabIndex = 1;
-            label1.Text = "Personal data";
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(12, 92);
+            resources.ApplyResources(label2, "label2");
             label2.Name = "label2";
-            label2.Size = new Size(59, 15);
-            label2.TabIndex = 2;
-            label2.Text = "Full name";
             // 
             // textBoxFullName
             // 
-            textBoxFullName.Location = new Point(12, 110);
+            resources.ApplyResources(textBoxFullName, "textBoxFullName");
             textBoxFullName.Name = "textBoxFullName";
-            textBoxFullName.Size = new Size(358, 23);
-            textBoxFullName.TabIndex = 3;
             // 
             // label3
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(12, 155);
+            resources.ApplyResources(label3, "label3");
             label3.Name = "label3";
-            label3.Size = new Size(36, 15);
-            label3.TabIndex = 4;
-            label3.Text = "Email";
             // 
             // textBoxEmail
             // 
-            textBoxEmail.Location = new Point(12, 173);
+            resources.ApplyResources(textBoxEmail, "textBoxEmail");
             textBoxEmail.Name = "textBoxEmail";
-            textBoxEmail.Size = new Size(358, 23);
-            textBoxEmail.TabIndex = 5;
             // 
             // buttonSave
             // 
-            buttonSave.Location = new Point(295, 213);
+            resources.ApplyResources(buttonSave, "buttonSave");
             buttonSave.Name = "buttonSave";
-            buttonSave.Size = new Size(75, 23);
-            buttonSave.TabIndex = 6;
-            buttonSave.Text = "Save";
             buttonSave.UseVisualStyleBackColor = true;
             buttonSave.Click += buttonSave_Click;
             // 
             // label4
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(430, 45);
+            resources.ApplyResources(label4, "label4");
             label4.Name = "label4";
-            label4.Size = new Size(183, 30);
-            label4.TabIndex = 7;
-            label4.Text = "Change password";
             // 
             // label5
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(430, 92);
+            resources.ApplyResources(label5, "label5");
             label5.Name = "label5";
-            label5.Size = new Size(100, 15);
-            label5.TabIndex = 8;
-            label5.Text = "Current password";
             // 
             // textBoxCurrentPassword
             // 
-            textBoxCurrentPassword.Location = new Point(430, 110);
+            resources.ApplyResources(textBoxCurrentPassword, "textBoxCurrentPassword");
             textBoxCurrentPassword.Name = "textBoxCurrentPassword";
-            textBoxCurrentPassword.PasswordChar = '*';
-            textBoxCurrentPassword.Size = new Size(358, 23);
-            textBoxCurrentPassword.TabIndex = 9;
             // 
             // label6
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(430, 155);
+            resources.ApplyResources(label6, "label6");
             label6.Name = "label6";
-            label6.Size = new Size(84, 15);
-            label6.TabIndex = 10;
-            label6.Text = "New password";
             // 
             // textBoxNewPassword
             // 
-            textBoxNewPassword.Location = new Point(430, 173);
+            resources.ApplyResources(textBoxNewPassword, "textBoxNewPassword");
             textBoxNewPassword.Name = "textBoxNewPassword";
-            textBoxNewPassword.PasswordChar = '*';
-            textBoxNewPassword.Size = new Size(358, 23);
-            textBoxNewPassword.TabIndex = 11;
             // 
             // label7
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(430, 221);
+            resources.ApplyResources(label7, "label7");
             label7.Name = "label7";
-            label7.Size = new Size(121, 15);
-            label7.TabIndex = 12;
-            label7.Text = "Repeat new password";
             // 
             // textBoxRepeatNewPassword
             // 
-            textBoxRepeatNewPassword.Location = new Point(430, 239);
+            resources.ApplyResources(textBoxRepeatNewPassword, "textBoxRepeatNewPassword");
             textBoxRepeatNewPassword.Name = "textBoxRepeatNewPassword";
-            textBoxRepeatNewPassword.PasswordChar = '*';
-            textBoxRepeatNewPassword.Size = new Size(358, 23);
-            textBoxRepeatNewPassword.TabIndex = 13;
             // 
             // buttonChangePassword
             // 
-            buttonChangePassword.Location = new Point(651, 290);
+            resources.ApplyResources(buttonChangePassword, "buttonChangePassword");
             buttonChangePassword.Name = "buttonChangePassword";
-            buttonChangePassword.Size = new Size(137, 23);
-            buttonChangePassword.TabIndex = 14;
-            buttonChangePassword.Text = "Change password";
             buttonChangePassword.UseVisualStyleBackColor = true;
             buttonChangePassword.Click += buttonChangePassword_Click;
             // 
             // ProfileForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
             Controls.Add(buttonChangePassword);
             Controls.Add(textBoxRepeatNewPassword);
             Controls.Add(label7);
@@ -186,9 +137,7 @@
             Controls.Add(textBoxFullName);
             Controls.Add(label2);
             Controls.Add(label1);
-            Margin = new Padding(11, 13, 11, 13);
             Name = "ProfileForm";
-            Text = "Profile";
             Load += ProfileForm_Load;
             Controls.SetChildIndex(label1, 0);
             Controls.SetChildIndex(label2, 0);

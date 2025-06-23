@@ -1,8 +1,10 @@
 using ClassLibrary;
 using CredentialManagement;
+using Microsoft.Win32;
 using NtpNeocropsClient.Dto;
 using NtpNeocropsClient.Entity;
 using NtpNeocropsClient.Utils;
+using System.Diagnostics;
 using System.Net;
 using System.Windows.Forms;
 
@@ -13,6 +15,23 @@ namespace NtpNeocropsClient
         public LoginForm() : base()
         {
             InitializeComponent();
+
+            comboBoxLanguage.Items.Add(new LanguageOption { Code = "hr", DisplayName = "Hrvatski" });
+            comboBoxLanguage.Items.Add(new LanguageOption { Code = "en", DisplayName = "English" });
+
+            using (var key = Registry.CurrentUser.OpenSubKey(@"Software\NeocropsApp\Language"))
+            {
+                var savedLanguage = key?.GetValue("Language") as string ?? "en";
+
+                foreach (LanguageOption item in comboBoxLanguage.Items)
+                {
+                    if (item.Code == savedLanguage)
+                    {
+                        comboBoxLanguage.SelectedItem = item;
+                        break;
+                    }
+                }
+            }
         }
 
         private void buttonCreateAccount_Click(object sender, EventArgs e)
@@ -63,6 +82,27 @@ namespace NtpNeocropsClient
             {
                 MessageBox.Show(ex.Message);
                 return;
+            }
+        }
+
+        private void comboBoxLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxLanguage.SelectedItem is LanguageOption selectedLanguage)
+            {
+                string languageCode = selectedLanguage.Code;
+
+                Debug.WriteLine(languageCode);
+
+                using (var key = Registry.CurrentUser.CreateSubKey(@"Software\NeocropsApp\Language"))
+                {
+                    var savedLanguage = key?.GetValue("Language") as string ?? "en";
+                    if (savedLanguage != languageCode)
+                    {
+                        key.SetValue("Language", languageCode, RegistryValueKind.String);
+                        Application.Restart();
+                        Environment.Exit(0);
+                    }
+                }
             }
         }
     }

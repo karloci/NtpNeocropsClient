@@ -28,61 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuthAbstractForm));
             menuStrip1 = new MenuStrip();
-            accountToolStripMenuItem = new ToolStripMenuItem();
-            logoutToolStripMenuItem = new ToolStripMenuItem();
             dashboardToolStripMenuItem = new ToolStripMenuItem();
+            accountToolStripMenuItem = new ToolStripMenuItem();
             profileToolStripMenuItem = new ToolStripMenuItem();
+            logoutToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
+            resources.ApplyResources(menuStrip1, "menuStrip1");
             menuStrip1.Items.AddRange(new ToolStripItem[] { accountToolStripMenuItem, dashboardToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 24);
-            menuStrip1.TabIndex = 0;
-            menuStrip1.Text = "menuStrip1";
-            // 
-            // accountToolStripMenuItem
-            // 
-            accountToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { profileToolStripMenuItem, logoutToolStripMenuItem });
-            accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            accountToolStripMenuItem.Size = new Size(64, 20);
-            accountToolStripMenuItem.Text = "Account";
-            // 
-            // logoutToolStripMenuItem
-            // 
-            logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            logoutToolStripMenuItem.Size = new Size(180, 22);
-            logoutToolStripMenuItem.Text = "Logout";
-            logoutToolStripMenuItem.Click += logoutToolStripMenuItem_Click;
             // 
             // dashboardToolStripMenuItem
             // 
+            resources.ApplyResources(dashboardToolStripMenuItem, "dashboardToolStripMenuItem");
             dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
-            dashboardToolStripMenuItem.Size = new Size(76, 20);
-            dashboardToolStripMenuItem.Text = "Dashboard";
             dashboardToolStripMenuItem.Click += dashboardToolStripMenuItem_Click;
+            // 
+            // accountToolStripMenuItem
+            // 
+            resources.ApplyResources(accountToolStripMenuItem, "accountToolStripMenuItem");
+            accountToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { profileToolStripMenuItem, logoutToolStripMenuItem });
+            accountToolStripMenuItem.Name = "accountToolStripMenuItem";
             // 
             // profileToolStripMenuItem
             // 
+            resources.ApplyResources(profileToolStripMenuItem, "profileToolStripMenuItem");
             profileToolStripMenuItem.Name = "profileToolStripMenuItem";
-            profileToolStripMenuItem.Size = new Size(180, 22);
-            profileToolStripMenuItem.Text = "Profile";
             profileToolStripMenuItem.Click += profileToolStripMenuItem_Click;
+            // 
+            // logoutToolStripMenuItem
+            // 
+            resources.ApplyResources(logoutToolStripMenuItem, "logoutToolStripMenuItem");
+            logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            logoutToolStripMenuItem.Click += logoutToolStripMenuItem_Click;
             // 
             // AuthAbstractForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "AuthAbstractForm";
-            StartPosition = FormStartPosition.Manual;
-            Text = "Neocrops";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
