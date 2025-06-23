@@ -1,5 +1,6 @@
 ﻿using CredentialManagement;
 using NtpNeocropsClient.Dto;
+using NtpNeocropsClient.Entity;
 using NtpNeocropsClient.Utils;
 using System;
 using System.Diagnostics;
@@ -136,6 +137,16 @@ namespace ClassLibrary
 
             var response = await SendRequestToServer(() => httpClient.PostAsync(endpoint, content));
 
+            var responseContent = await response.Content.ReadAsStringAsync();
+            await LogAsync(new ApiLogEntry
+            {
+                Timestamp = DateTime.UtcNow,
+                HttpMethod = "POST",
+                Endpoint = endpoint,
+                Payload = payload,
+                ResponseContent = JsonSerializer.Deserialize<JsonElement>(responseContent)
+            });
+
             if (response.IsSuccessStatusCode)
             {
                 var responseBody = await response.Content.ReadAsStringAsync();
@@ -162,6 +173,16 @@ namespace ClassLibrary
 
             var response = await SendRequestToServer(() => httpClient.PatchAsync(endpoint, content));
 
+            var responseContent = await response.Content.ReadAsStringAsync();
+            await LogAsync(new ApiLogEntry
+            {
+                Timestamp = DateTime.UtcNow,
+                HttpMethod = "PATCH",
+                Endpoint = endpoint,
+                Payload = payload,
+                ResponseContent = JsonSerializer.Deserialize<JsonElement>(responseContent)
+            });
+
             if (response.IsSuccessStatusCode)
             {
                 var responseBody = await response.Content.ReadAsStringAsync();
@@ -181,6 +202,16 @@ namespace ClassLibrary
 
             var response = await SendRequestToServer(() => httpClient.GetAsync(endpoint));
 
+            var responseContent = await response.Content.ReadAsStringAsync();
+            await LogAsync(new ApiLogEntry
+            {
+                Timestamp = DateTime.UtcNow,
+                HttpMethod = "GET",
+                Endpoint = endpoint,
+                Payload = null,
+                ResponseContent = JsonSerializer.Deserialize<JsonElement>(responseContent)
+            });
+
             if (response.IsSuccessStatusCode)
             {
                 var responseBody = await response.Content.ReadAsStringAsync();
@@ -192,6 +223,37 @@ namespace ClassLibrary
 
             await HandleErrorResponse(response);
             return default;
+        }
+
+        private static async Task LogAsync(ApiLogEntry logEntry)
+        {
+            List<ApiLogEntry> logs;
+
+            string logsDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logs");
+            Directory.CreateDirectory(logsDir);
+
+            string? userId = NeocropsState.LoggedInUser?.Id.ToString() ?? null;
+
+            if (userId != null)
+            {
+                string loggedUserLogsFile = Path.Combine(logsDir, $"logs_{userId}.json");
+                if (File.Exists(loggedUserLogsFile))
+                {
+                    var existingJson = await File.ReadAllTextAsync(loggedUserLogsFile);
+                    logs = string.IsNullOrWhiteSpace(existingJson) ? new List<ApiLogEntry>() : JsonSerializer.Deserialize<List<ApiLogEntry>>(existingJson) ?? new List<ApiLogEntry>();
+                }
+                else
+                {
+                    logs = new List<ApiLogEntry>();
+                }
+
+                logs.Add(logEntry);
+
+                var options = new JsonSerializerOptions { WriteIndented = true };
+                var newJson = JsonSerializer.Serialize(logs, options);
+
+                await File.WriteAllTextAsync(loggedUserLogsFile, newJson);
+            }
         }
     }
 }
