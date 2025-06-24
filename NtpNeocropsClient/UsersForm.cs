@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace NtpNeocropsClient
 {
@@ -22,16 +23,17 @@ namespace NtpNeocropsClient
             InitializeComponent();
         }
 
-        private async void UsersForm_Load(object sender, EventArgs e)
+        private async void FetchUsers()
         {
             try
             {
                 var farmId = NeocropsState.LoggedInUser.UserFarm.Id;
-                var data = await ApiClient.GetAsync<List<NtpNeocropsClient.Entity.User>>($"/users/{farmId}");
+                var data = await ApiClient.GetAsync<List<NtpNeocropsClient.Entity.User>>($"/farm/{farmId}/users");
 
                 if (data != null)
                 {
                     dataGridViewUsers.DataSource = data;
+
                     dataGridViewUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     dataGridViewUsers.CellDoubleClick += DataGridViewUsers_CellDoubleClick;
                     dataGridViewUsers.ReadOnly = true;
@@ -41,14 +43,17 @@ namespace NtpNeocropsClient
 
                     dataGridViewUsers.Columns["FullName"].HeaderText = Strings.FullName;
                     dataGridViewUsers.Columns["Email"].HeaderText = Strings.Email;
-
-
                 }
             }
             catch (ApiException ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private async void UsersForm_Load(object sender, EventArgs e)
+        {
+            FetchUsers();
         }
 
         private void DataGridViewUsers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -58,14 +63,22 @@ namespace NtpNeocropsClient
                 var user = (NtpNeocropsClient.Entity.User)dataGridViewUsers.Rows[e.RowIndex].DataBoundItem;
 
                 var userDetailsForm = new UserDetailsForm(user);
-                userDetailsForm.ShowDialog();
+                var result = userDetailsForm.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    FetchUsers();
+                }
             }
         }
 
         private void buttonNewUser_Click(object sender, EventArgs e)
         {
             var userDetailsForm = new UserDetailsForm();
-            userDetailsForm.ShowDialog();
+            var result = userDetailsForm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                FetchUsers();
+            }
         }
     }
 }
