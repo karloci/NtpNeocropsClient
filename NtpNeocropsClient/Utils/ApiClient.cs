@@ -1,6 +1,7 @@
 ﻿using CredentialManagement;
-using NtpNeocropsClient.Dto;
-using NtpNeocropsClient.Entity;
+using NtpNeocropsClient.Modules.Authentication.Dto;
+using NtpNeocropsClient.Shared.Dto;
+using NtpNeocropsClient.Shared.Entity;
 using NtpNeocropsClient.Utils;
 using System;
 using System.Diagnostics;
@@ -66,12 +67,16 @@ namespace ClassLibrary
                     var responseBody = await response.Content.ReadAsStringAsync();
                     var data = JsonSerializer.Deserialize<AuthenticationResponseDto>(responseBody);
 
-                    NeocropsState.SaveCredentials(data.User.Email, data.RefreshToken);
-                    NeocropsState.LoggedInUser = data.User;
-                    NeocropsState.AccessToken = data.AccessToken;
-                    NeocropsState.RefreshToken = data.RefreshToken;
+                    if (data != null)
+                    {
+                        NeocropsState.SaveCredentials(data.LoggedInUser.Email, data.RefreshToken);
+                        NeocropsState.LoggedInUser = data.LoggedInUser;
+                        NeocropsState.AccessToken = data.AccessToken;
+                        NeocropsState.RefreshToken = data.RefreshToken;
+                        return true;
+                    }
 
-                    return true;
+                    return false;
                 }
 
                 if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
@@ -114,7 +119,6 @@ namespace ClassLibrary
             try
             {
                 var errorResponse = JsonSerializer.Deserialize<MessageResponseDto>(responseBody);
-                Debug.WriteLine($"{errorResponse.Message} - {errorResponse.Detail}");
                 serverMessage = errorResponse?.Message ?? errorResponse?.Detail ?? "Server error!";
             }
             catch

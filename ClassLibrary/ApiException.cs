@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-    public class ApiException: HttpRequestException
+    public class ApiException: Exception
     {
         public HttpStatusCode StatusCode { get; }
         public string ServerMessage { get; }
 
-        public ApiException(HttpStatusCode statusCode, string message, string serverMessage = null) : base(serverMessage)
+        public ApiException(HttpStatusCode statusCode, string message, string? serverMessage = null) : base(serverMessage)
         {
             StatusCode = statusCode;
-            ServerMessage = serverMessage;
+            ServerMessage = serverMessage ?? "Server error";
         }
     }
 }

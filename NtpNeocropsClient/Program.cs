@@ -1,7 +1,7 @@
 using ClassLibrary;
 using CredentialManagement;
 using Microsoft.Win32;
-using NtpNeocropsClient.Dto;
+using NtpNeocropsClient.Modules.Authentication.Dto;
 using NtpNeocropsClient.Utils;
 using System.Diagnostics;
 using System.Globalization;
@@ -44,8 +44,8 @@ namespace NtpNeocropsClient
 
                     if (data != null)
                     {
-                        NeocropsState.SaveCredentials(data.User.Email, data.RefreshToken);
-                        NeocropsState.LoggedInUser = data.User;
+                        NeocropsState.SaveCredentials(data.LoggedInUser.Email, data.RefreshToken);
+                        NeocropsState.LoggedInUser = data.LoggedInUser;
                         NeocropsState.AccessToken = data.AccessToken;
                         NeocropsState.RefreshToken = data.RefreshToken;
 

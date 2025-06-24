@@ -1,5 +1,5 @@
 ﻿using CredentialManagement;
-using NtpNeocropsClient.Entity;
+using NtpNeocropsClient.Modules.Users.Entity;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,7 +12,7 @@ namespace NtpNeocropsClient.Utils
 {
     internal class NeocropsState
     {
-        public static User? LoggedInUser { get; set; }
+        public static AppUser? LoggedInUser { get; set; }
         public static string? RefreshToken { get; set; }
         public static string? AccessToken { get; set; }
 
