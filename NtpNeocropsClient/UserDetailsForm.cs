@@ -16,11 +16,14 @@ namespace NtpNeocropsClient
 {
     public partial class UserDetailsForm : AbstractForm
     {
+        private User? selectedUser = null;
+
         public UserDetailsForm(User? user = null)
         {
             InitializeComponent();
 
-            if (user != null) { 
+            if (user != null) {
+                selectedUser = user;
                 textBoxFullName.Text = user.FullName;
                 textBoxEmail.Text = user.Email;
             }
@@ -46,11 +49,24 @@ namespace NtpNeocropsClient
             try
             {
                 var farmId = NeocropsState.LoggedInUser.UserFarm.Id;
-                var data = await ApiClient.PostAsync<User>($"/farm/{farmId}/users", new UserDetailsDto
+                var data = new User();
+
+                if (selectedUser == null)
                 {
-                    FullName = fullName,
-                    Email = email
-                });
+                    data = await ApiClient.PostAsync<User>($"/farm/{farmId}/users", new UserDetailsDto
+                    {
+                        FullName = fullName,
+                        Email = email
+                    });
+                }
+                else
+                {
+                    data = await ApiClient.PatchAsync<User>($"/farm/{farmId}/users/{selectedUser.Id}", new UserDetailsDto
+                    {
+                        FullName = fullName,
+                        Email = email
+                    });
+                }
 
                 if (data != null)
                 {
