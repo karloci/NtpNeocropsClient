@@ -25,7 +25,6 @@ namespace NtpNeocropsClient
 
         private void ProfileForm_Load(object sender, EventArgs e)
         {
-
             User loggedInUser = NeocropsState.LoggedInUser;
 
             if (loggedInUser != null)

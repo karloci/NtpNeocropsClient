@@ -117,35 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="accountToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 20</value>
-  </data>
-  <data name="accountToolStripMenuItem.Text" xml:space="preserve">
-    <value>Korisnički račun</value>
-  </data>
-  <data name="dashboardToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 20</value>
-  </data>
-  <data name="dashboardToolStripMenuItem.Text" xml:space="preserve">
-    <value>Vremenska prognoza</value>
-  </data>
-  <data name="usersToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 20</value>
-  </data>
-  <data name="usersToolStripMenuItem.Text" xml:space="preserve">
-    <value>Korisnici</value>
-  </data>
-  <data name="profileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 22</value>
-  </data>
-  <data name="profileToolStripMenuItem.Text" xml:space="preserve">
-    <value>Profil</value>
-  </data>
-  <data name="logoutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 22</value>
-  </data>
-  <data name="logoutToolStripMenuItem.Text" xml:space="preserve">
-    <value>Odjava</value>
-  </data>
 </root>

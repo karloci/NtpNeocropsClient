@@ -1,6 +1,7 @@
 ﻿using ClassLibrary;
 using NtpNeocropsClient.Dto;
 using NtpNeocropsClient.Entity;
+using NtpNeocropsClient.Service;
 using NtpNeocropsClient.Utils;
 using ServiceReference;
 using System;
@@ -33,7 +34,7 @@ namespace NtpNeocropsClient
         {
             try
             {
-                var countries = await GetCountriesAsync();
+                var countries = await CountryService.GetCountriesAsync();
 
                 comboBoxCountry.DisplayMember = "Name";
                 comboBoxCountry.ValueMember = "Code";
@@ -45,61 +46,6 @@ namespace NtpNeocropsClient
             }
         }
 
-        private async Task<List<Country>> GetCountriesAsync()
-        {
-            var countries = new List<Country>();
-
-            string cacheDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "cache");
-            Directory.CreateDirectory(cacheDir);
-
-            string countriesFile = Path.Combine(cacheDir, "countries.bin");
-            if (File.Exists(countriesFile) && (DateTime.Now - File.GetLastWriteTime(countriesFile)).TotalMinutes <= 5)
-            {
-                countries = LoadCountriesFromFile(countriesFile);
-            }
-            else
-            {
-                var client = new CountryInfoServiceSoapTypeClient(CountryInfoServiceSoapTypeClient.EndpointConfiguration.CountryInfoServiceSoap);
-                var result = await client.ListOfCountryNamesByNameAsync();
-
-                countries = result.Body.ListOfCountryNamesByNameResult
-                    .Select(c => new Country { Name = c.sName, Code = c.sISOCode })
-                    .ToList();
-
-                using (var fs = new FileStream(countriesFile, FileMode.Create, FileAccess.Write))
-                using (var writer = new BinaryWriter(fs))
-                {
-                    writer.Write(countries.Count);
-                    foreach (var country in countries)
-                    {
-                        writer.Write(country.Name);
-                        writer.Write(country.Code);
-                    }
-                }
-            }
-
-            return countries;
-        }
-
-        private List<Country> LoadCountriesFromFile(string countriesFile)
-        {
-            var countries = new List<Country>();
-
-            using (var fs = new FileStream(countriesFile, FileMode.Open, FileAccess.Read))
-            using (var reader = new BinaryReader(fs))
-            {
-                int count = reader.ReadInt32();
-                for (int i = 0; i < count; i++)
-                {
-                    string name = reader.ReadString();
-                    string code = reader.ReadString();
-                    countries.Add(new Country { Name = name, Code = code });
-                }
-            }
-
-            return countries;
-        }
-
         private async void buttonRegister_Click(object sender, EventArgs e)
         {
             string fullName = textBoxFullName.Text;
@@ -107,7 +53,7 @@ namespace NtpNeocropsClient
             string password = textBoxPassword.Text;
             string repeatPassword = textBoxRepeatPassword.Text;
             string farmName = textBoxFarmName.Text;
-            string farmId = textBoxFarmId.Text;
+            string farmOib = textBoxFarmOib.Text;
             string country = comboBoxCountry.SelectedValue?.ToString() ?? "";
             string farmPostalCode = textBoxFarmPostalCode.Text;
 
@@ -117,7 +63,7 @@ namespace NtpNeocropsClient
                 || !Validator.IsRequired(password)
                 || !Validator.IsRequired(repeatPassword)
                 || !Validator.IsRequired(farmName)
-                || !Validator.IsRequired(farmId)
+                || !Validator.IsRequired(farmOib)
                 || !Validator.IsRequired(country)
                 || !Validator.IsRequired(farmPostalCode)
             )
@@ -138,7 +84,7 @@ namespace NtpNeocropsClient
                 return;
             }
 
-            if (!Validator.IsValidOib(farmId))
+            if (!Validator.IsValidOib(farmOib))
             {
                 MessageBox.Show(Strings.FarmIdIsNotInCorrectFormat);
                 return;
@@ -159,7 +105,7 @@ namespace NtpNeocropsClient
                     Password = password,
                     RepeatPassword = repeatPassword,
                     FarmName = farmName,
-                    FarmOib = farmId,
+                    FarmOib = farmOib,
                     FarmCountryIsoCode = country,
                     FarmPostalCode = farmPostalCode,
                 });

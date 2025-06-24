@@ -52,6 +52,17 @@ namespace NtpNeocropsClient
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
+        }
+
+        private void farmDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FarmDetailsForm farmDetailsForm = new FarmDetailsForm();
+            farmDetailsForm.Show();
+        }
+
+        private void usersToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
             this.Hide();
             UsersForm usersForm = new UsersForm();
             usersForm.Show();

@@ -197,6 +197,42 @@ namespace ClassLibrary
             return default;
         }
 
+        public static async Task<T?> PutAsync<T>(string endpoint, object payload)
+        {
+            AddAuthorizationHeader();
+
+            var json = JsonSerializer.Serialize(payload, new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            });
+
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await SendRequestToServer(() => httpClient.PutAsync(endpoint, content));
+
+            var responseContent = await response.Content.ReadAsStringAsync();
+            await LogAsync(new ApiLogEntry
+            {
+                Timestamp = DateTime.UtcNow,
+                HttpMethod = "PUT",
+                Endpoint = endpoint,
+                Payload = payload,
+                ResponseContent = JsonSerializer.Deserialize<JsonElement>(responseContent)
+            });
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseBody = await response.Content.ReadAsStringAsync();
+                return JsonSerializer.Deserialize<T>(responseBody, new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+            }
+
+            await HandleErrorResponse(response);
+            return default;
+        }
+
         public static async Task<T?> GetAsync<T>(string endpoint)
         {
             AddAuthorizationHeader();

@@ -34,45 +34,59 @@
             profileToolStripMenuItem = new ToolStripMenuItem();
             logoutToolStripMenuItem = new ToolStripMenuItem();
             dashboardToolStripMenuItem = new ToolStripMenuItem();
-            usersToolStripMenuItem = new ToolStripMenuItem();
+            farmToolStripMenuItem = new ToolStripMenuItem();
+            farmDetailsToolStripMenuItem = new ToolStripMenuItem();
+            usersToolStripMenuItem1 = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { accountToolStripMenuItem, dashboardToolStripMenuItem, farmToolStripMenuItem });
             resources.ApplyResources(menuStrip1, "menuStrip1");
-            menuStrip1.Items.AddRange(new ToolStripItem[] { accountToolStripMenuItem, dashboardToolStripMenuItem, usersToolStripMenuItem });
             menuStrip1.Name = "menuStrip1";
             // 
             // accountToolStripMenuItem
             // 
-            resources.ApplyResources(accountToolStripMenuItem, "accountToolStripMenuItem");
             accountToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { profileToolStripMenuItem, logoutToolStripMenuItem });
             accountToolStripMenuItem.Name = "accountToolStripMenuItem";
+            resources.ApplyResources(accountToolStripMenuItem, "accountToolStripMenuItem");
             // 
             // profileToolStripMenuItem
             // 
-            resources.ApplyResources(profileToolStripMenuItem, "profileToolStripMenuItem");
             profileToolStripMenuItem.Name = "profileToolStripMenuItem";
+            resources.ApplyResources(profileToolStripMenuItem, "profileToolStripMenuItem");
             profileToolStripMenuItem.Click += profileToolStripMenuItem_Click;
             // 
             // logoutToolStripMenuItem
             // 
-            resources.ApplyResources(logoutToolStripMenuItem, "logoutToolStripMenuItem");
             logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            resources.ApplyResources(logoutToolStripMenuItem, "logoutToolStripMenuItem");
             logoutToolStripMenuItem.Click += logoutToolStripMenuItem_Click;
             // 
             // dashboardToolStripMenuItem
             // 
-            resources.ApplyResources(dashboardToolStripMenuItem, "dashboardToolStripMenuItem");
             dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
+            resources.ApplyResources(dashboardToolStripMenuItem, "dashboardToolStripMenuItem");
             dashboardToolStripMenuItem.Click += dashboardToolStripMenuItem_Click;
             // 
-            // usersToolStripMenuItem
+            // farmToolStripMenuItem
             // 
-            resources.ApplyResources(usersToolStripMenuItem, "usersToolStripMenuItem");
-            usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            usersToolStripMenuItem.Click += usersToolStripMenuItem_Click;
+            farmToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { farmDetailsToolStripMenuItem, usersToolStripMenuItem1 });
+            farmToolStripMenuItem.Name = "farmToolStripMenuItem";
+            resources.ApplyResources(farmToolStripMenuItem, "farmToolStripMenuItem");
+            // 
+            // farmDetailsToolStripMenuItem
+            // 
+            farmDetailsToolStripMenuItem.Name = "farmDetailsToolStripMenuItem";
+            resources.ApplyResources(farmDetailsToolStripMenuItem, "farmDetailsToolStripMenuItem");
+            farmDetailsToolStripMenuItem.Click += farmDetailsToolStripMenuItem_Click;
+            // 
+            // usersToolStripMenuItem1
+            // 
+            usersToolStripMenuItem1.Name = "usersToolStripMenuItem1";
+            resources.ApplyResources(usersToolStripMenuItem1, "usersToolStripMenuItem1");
+            usersToolStripMenuItem1.Click += usersToolStripMenuItem1_Click;
             // 
             // AuthAbstractForm
             // 
@@ -94,6 +108,8 @@
         private ToolStripMenuItem logoutToolStripMenuItem;
         private ToolStripMenuItem dashboardToolStripMenuItem;
         private ToolStripMenuItem profileToolStripMenuItem;
-        private ToolStripMenuItem usersToolStripMenuItem;
+        private ToolStripMenuItem farmToolStripMenuItem;
+        private ToolStripMenuItem farmDetailsToolStripMenuItem;
+        private ToolStripMenuItem usersToolStripMenuItem1;
     }
 }

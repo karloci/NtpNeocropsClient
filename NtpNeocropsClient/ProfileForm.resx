@@ -126,7 +126,7 @@
     <value>Segoe UI Semibold, 15.75pt, style=Bold</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 45</value>
+    <value>12, 24</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>142, 30</value>
@@ -153,7 +153,7 @@
     <value>True</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 155</value>
+    <value>12, 134</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>59, 15</value>
@@ -177,7 +177,7 @@
     <value>15</value>
   </data>
   <data name="textBoxFullName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 173</value>
+    <value>12, 152</value>
   </data>
   <data name="textBoxFullName.Size" type="System.Drawing.Size, System.Drawing">
     <value>358, 23</value>
@@ -201,7 +201,7 @@
     <value>True</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 221</value>
+    <value>12, 200</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>36, 15</value>
@@ -225,7 +225,7 @@
     <value>13</value>
   </data>
   <data name="textBoxEmail.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 239</value>
+    <value>12, 218</value>
   </data>
   <data name="textBoxEmail.Size" type="System.Drawing.Size, System.Drawing">
     <value>358, 23</value>
@@ -246,7 +246,7 @@
     <value>12</value>
   </data>
   <data name="buttonSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>295, 279</value>
+    <value>295, 258</value>
   </data>
   <data name="buttonSave.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -276,7 +276,7 @@
     <value>Segoe UI Semibold, 15.75pt, style=Bold</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>430, 45</value>
+    <value>430, 24</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>183, 30</value>
@@ -303,7 +303,7 @@
     <value>True</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>430, 92</value>
+    <value>430, 71</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 15</value>
@@ -327,7 +327,7 @@
     <value>9</value>
   </data>
   <data name="textBoxCurrentPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>430, 110</value>
+    <value>430, 89</value>
   </data>
   <data name="textBoxCurrentPassword.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
     <value>*</value>
@@ -354,7 +354,7 @@
     <value>True</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>430, 155</value>
+    <value>430, 134</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>84, 15</value>
@@ -378,7 +378,7 @@
     <value>7</value>
   </data>
   <data name="textBoxNewPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>430, 173</value>
+    <value>430, 152</value>
   </data>
   <data name="textBoxNewPassword.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
     <value>*</value>
@@ -405,7 +405,7 @@
     <value>True</value>
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>430, 221</value>
+    <value>430, 200</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 15</value>
@@ -429,7 +429,7 @@
     <value>5</value>
   </data>
   <data name="textBoxRepeatNewPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>430, 239</value>
+    <value>430, 218</value>
   </data>
   <data name="textBoxRepeatNewPassword.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
     <value>*</value>
@@ -453,7 +453,7 @@
     <value>4</value>
   </data>
   <data name="buttonChangePassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>651, 290</value>
+    <value>651, 269</value>
   </data>
   <data name="buttonChangePassword.Size" type="System.Drawing.Size, System.Drawing">
     <value>137, 23</value>
@@ -620,7 +620,7 @@
 </value>
   </data>
   <data name="pictureBoxAvatar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 78</value>
+    <value>12, 57</value>
   </data>
   <data name="pictureBoxAvatar.Size" type="System.Drawing.Size, System.Drawing">
     <value>68, 68</value>
@@ -645,7 +645,7 @@
     <value>2</value>
   </data>
   <data name="buttonSaveAvatar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>96, 124</value>
+    <value>96, 103</value>
   </data>
   <data name="buttonSaveAvatar.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -669,7 +669,7 @@
     <value>1</value>
   </data>
   <data name="buttonDeleteAvatar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>177, 124</value>
+    <value>177, 103</value>
   </data>
   <data name="buttonDeleteAvatar.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>

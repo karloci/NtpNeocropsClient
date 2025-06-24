@@ -53,10 +53,6 @@ namespace ClassLibrary
                 form.Left = l;
                 form.Top = t;
             }
-            else
-            {
-                Debug.WriteLine("WindowPosition failed!");
-            }
         }
     }
 }

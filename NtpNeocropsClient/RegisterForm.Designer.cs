@@ -42,7 +42,7 @@
             label5 = new Label();
             textBoxFarmName = new TextBox();
             label6 = new Label();
-            textBoxFarmId = new TextBox();
+            textBoxFarmOib = new TextBox();
             label7 = new Label();
             buttonRegister = new Button();
             label8 = new Label();
@@ -120,8 +120,8 @@
             // 
             // textBoxFarmId
             // 
-            resources.ApplyResources(textBoxFarmId, "textBoxFarmId");
-            textBoxFarmId.Name = "textBoxFarmId";
+            resources.ApplyResources(textBoxFarmOib, "textBoxFarmId");
+            textBoxFarmOib.Name = "textBoxFarmId";
             // 
             // label7
             // 
@@ -159,7 +159,7 @@
             Controls.Add(label8);
             Controls.Add(buttonRegister);
             Controls.Add(label7);
-            Controls.Add(textBoxFarmId);
+            Controls.Add(textBoxFarmOib);
             Controls.Add(label6);
             Controls.Add(textBoxFarmName);
             Controls.Add(label5);
@@ -194,7 +194,7 @@
         private Label label5;
         private TextBox textBoxFarmName;
         private Label label6;
-        private TextBox textBoxFarmId;
+        private TextBox textBoxFarmOib;
         private Label label7;
         private Button buttonRegister;
         private Label label8;
