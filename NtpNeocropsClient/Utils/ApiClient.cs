@@ -150,8 +150,7 @@ namespace ClassLibrary
 
             if (response.IsSuccessStatusCode)
             {
-                var responseBody = await response.Content.ReadAsStringAsync();
-                return JsonSerializer.Deserialize<T>(responseBody, new JsonSerializerOptions
+                return JsonSerializer.Deserialize<T>(responseContent, new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
                 });
@@ -186,8 +185,7 @@ namespace ClassLibrary
 
             if (response.IsSuccessStatusCode)
             {
-                var responseBody = await response.Content.ReadAsStringAsync();
-                return JsonSerializer.Deserialize<T>(responseBody, new JsonSerializerOptions
+                return JsonSerializer.Deserialize<T>(responseContent, new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
                 });
@@ -222,8 +220,7 @@ namespace ClassLibrary
 
             if (response.IsSuccessStatusCode)
             {
-                var responseBody = await response.Content.ReadAsStringAsync();
-                return JsonSerializer.Deserialize<T>(responseBody, new JsonSerializerOptions
+                return JsonSerializer.Deserialize<T>(responseContent, new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
                 });
@@ -251,8 +248,7 @@ namespace ClassLibrary
 
             if (response.IsSuccessStatusCode)
             {
-                var responseBody = await response.Content.ReadAsStringAsync();
-                return JsonSerializer.Deserialize<T>(responseBody, new JsonSerializerOptions
+                return JsonSerializer.Deserialize<T>(responseContent, new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
                 });
@@ -338,18 +334,25 @@ namespace ClassLibrary
             return null;
         }
 
-        public static async Task UploadUserAvatarAsync(Image image)
+        public static async Task<T?> UploadUserAvatarAsync<T>(Image image)
         {
             AddAuthorizationHeader();
 
-            using var ms = new MemoryStream();
+            using var memoryStream = new MemoryStream();
 
-            image.Save(ms, ImageFormat.Jpeg);
-            var content = new ByteArrayContent(ms.ToArray());
+            image.Save(memoryStream, ImageFormat.Jpeg);
+            var content = new ByteArrayContent(memoryStream.ToArray());
             content.Headers.ContentType = new MediaTypeHeaderValue("image/jpeg");
 
             var response = await httpClient.PostAsync("/profile/avatar", content);
-            response.EnsureSuccessStatusCode();
+
+            if (response.IsSuccessStatusCode)
+            {
+                return default;
+            }
+
+            await HandleErrorResponse(response);
+            return default;
         }
     }
 }

@@ -150,8 +150,17 @@ namespace NtpNeocropsClient
             {
                 string filePath = openFileDialog.FileName;
                 using var uploadedAvatar = Image.FromFile(filePath);
-                await ApiClient.UploadUserAvatarAsync(uploadedAvatar);
-                LoadAvatar();
+
+                try
+                {
+                    await ApiClient.UploadUserAvatarAsync<object>(uploadedAvatar);
+                    LoadAvatar();
+                }
+                catch (ApiException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
             }
         }
 

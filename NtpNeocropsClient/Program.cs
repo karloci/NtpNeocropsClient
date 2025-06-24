@@ -2,11 +2,11 @@ using ClassLibrary;
 using CredentialManagement;
 using Microsoft.Win32;
 using NtpNeocropsClient.Dto;
-using NtpNeocropsClient.Entity;
 using NtpNeocropsClient.Utils;
 using System.Diagnostics;
 using System.Globalization;
 using System.Net;
+using System.Windows.Forms.Design;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
