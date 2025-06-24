@@ -49,13 +49,13 @@ namespace NtpNeocropsClient
 
             if (!Validator.IsRequired(email) || !Validator.IsRequired(password))
             {
-                MessageBox.Show("All fields are required!");
+                MessageBox.Show(Strings.AllFieldsAreRequired);
                 return;
             }
 
             if (!Validator.IsValidEmail(email))
             {
-                MessageBox.Show("Email is not in correct format!");
+                MessageBox.Show(Strings.EmailIsNotInCorrectFormat);
                 return;
             }
 

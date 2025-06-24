@@ -49,16 +49,16 @@ namespace NtpNeocropsClient
                 layout.RowStyles.Add(new RowStyle(SizeType.Percent, 50f));
                 layout.RowStyles.Add(new RowStyle(SizeType.Percent, 50f));
 
-                var tempChart = CreateSingleChart(data, "Temperatura (°C)", "Temp");
+                var tempChart = CreateSingleChart(data, $"{Strings.Temperature} (°C)", "Temp");
                 layout.Controls.Add(tempChart, 0, 0);
 
-                var pressureChart = CreateSingleChart(data, "Tlak (hPa)", "Pressure");
+                var pressureChart = CreateSingleChart(data, $"{Strings.Pressure} (hPa)", "Pressure");
                 layout.Controls.Add(pressureChart, 1, 0);
 
-                var humidityChart = CreateSingleChart(data, "Vlažnost (%)", "Humidity");
+                var humidityChart = CreateSingleChart(data, $"{Strings.Humidity} (%)", "Humidity");
                 layout.Controls.Add(humidityChart, 0, 1);
 
-                var windChart = CreateSingleChart(data, "Brzina vjetra (m/s)", "WindSpeed");
+                var windChart = CreateSingleChart(data, $"{Strings.WindSpeed} (m/s)", "WindSpeed");
                 layout.Controls.Add(windChart, 1, 1);
 
                 this.Controls.Add(layout);
@@ -73,10 +73,10 @@ namespace NtpNeocropsClient
         {
             var chart = new Chart { Dock = DockStyle.Fill };
 
-            var chartArea = new ChartArea("MainArea")
+            var chartArea = new ChartArea("WheatherChartArea")
             {
                 AxisX = {
-                    Title = "Time (HH:mm)",
+                    Title = Strings.Time,
                     LabelStyle = {
                         Format = "HH:mm",
                     },

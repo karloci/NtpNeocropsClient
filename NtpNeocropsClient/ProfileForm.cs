@@ -42,13 +42,13 @@ namespace NtpNeocropsClient
 
             if (!Validator.IsRequired(fullName) || !Validator.IsRequired(email))
             {
-                MessageBox.Show("All fields are required!");
+                MessageBox.Show(Strings.AllFieldsAreRequired);
                 return;
             }
 
             if (!Validator.IsValidEmail(email))
             {
-                MessageBox.Show("Email is not in correct format!");
+                MessageBox.Show(Strings.EmailIsNotInCorrectFormat);
                 return;
             }
 
@@ -64,7 +64,7 @@ namespace NtpNeocropsClient
                 {
                     NeocropsState.LoggedInUser = data;
 
-                    MessageBox.Show("Successfully saved!");
+                    MessageBox.Show(Strings.SuccessfullySaved);
                     return;
                 }
             }
@@ -83,19 +83,19 @@ namespace NtpNeocropsClient
 
             if (!Validator.IsRequired(currentPassword) || !Validator.IsRequired(newPassword) || !Validator.IsRequired(repeatPassword))
             {
-                MessageBox.Show("All fields are required!");
+                MessageBox.Show(Strings.AllFieldsAreRequired);
                 return;
             }
 
             if (!newPassword.Equals(repeatPassword))
             {
-                MessageBox.Show("Passwords does not match!");
+                MessageBox.Show(Strings.PasswordsDoesNotMatch);
                 return;
             }
 
             if (!Validator.HasMinLength(newPassword, 8) || !Validator.HasMinLength(newPassword, 8))
             {
-                MessageBox.Show("Password should have at least 8 characters!");
+                MessageBox.Show(Strings.PasswordShouldHaveAtLeastEightCharacters);
                 return;
             }
 

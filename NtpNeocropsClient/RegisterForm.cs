@@ -122,31 +122,31 @@ namespace NtpNeocropsClient
                 || !Validator.IsRequired(farmPostalCode)
             )
             {
-                MessageBox.Show("All fields are required!");
+                MessageBox.Show(Strings.AllFieldsAreRequired);
                 return;
             }
 
             if (!Validator.IsValidEmail(email))
             {
-                MessageBox.Show("Email is not in correct format!");
+                MessageBox.Show(Strings.EmailIsNotInCorrectFormat);
                 return;
             }
 
             if (!password.Equals(repeatPassword))
             {
-                MessageBox.Show("Passwords does not match!");
+                MessageBox.Show(Strings.PasswordsDoesNotMatch);
                 return;
             }
 
             if (!Validator.IsValidOib(farmId))
             {
-                MessageBox.Show("Farm ID is not in correct format!");
+                MessageBox.Show(Strings.FarmIdIsNotInCorrectFormat);
                 return;
             }
 
             if (!Validator.HasMinLength(farmPostalCode, 5) || !Validator.HasMaxLength(farmPostalCode, 5))
             {
-                MessageBox.Show("Postal code must have 5 characters!");
+                MessageBox.Show(Strings.PostalCodeMustHaveFiveCharacters);
                 return;
             }
 
