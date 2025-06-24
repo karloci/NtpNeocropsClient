@@ -34,6 +34,7 @@
             label2 = new Label();
             textBoxEmail = new TextBox();
             buttonSave = new Button();
+            buttonDelete = new Button();
             SuspendLayout();
             // 
             // label1
@@ -63,10 +64,17 @@
             buttonSave.UseVisualStyleBackColor = true;
             buttonSave.Click += buttonSave_Click;
             // 
+            // buttonDelete
+            // 
+            resources.ApplyResources(buttonDelete, "buttonDelete");
+            buttonDelete.Name = "buttonDelete";
+            buttonDelete.UseVisualStyleBackColor = true;
+            // 
             // UserDetailsForm
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(buttonDelete);
             Controls.Add(buttonSave);
             Controls.Add(textBoxEmail);
             Controls.Add(label2);
@@ -84,5 +92,6 @@
         private Label label2;
         private TextBox textBoxEmail;
         private Button buttonSave;
+        private Button buttonDelete;
     }
 }
