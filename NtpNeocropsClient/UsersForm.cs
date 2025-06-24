@@ -64,12 +64,19 @@ namespace NtpNeocropsClient
 
                 var userDetailsForm = new UserDetailsForm(user);
                 var result = userDetailsForm.ShowDialog();
+
                 if (result == DialogResult.OK)
                 {
+                    dataGridViewUsers.CellDoubleClick -= DataGridViewUsers_CellDoubleClick;
+
+                    dataGridViewUsers.ClearSelection();
+                    dataGridViewUsers.CurrentCell = null;
+
                     FetchUsers();
                 }
             }
         }
+
 
         private void buttonNewUser_Click(object sender, EventArgs e)
         {

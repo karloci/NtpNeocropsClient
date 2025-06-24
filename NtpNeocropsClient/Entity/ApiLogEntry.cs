@@ -13,6 +13,6 @@ namespace NtpNeocropsClient.Entity
         public string HttpMethod { get; set; }
         public string Endpoint { get; set; }
         public object? Payload { get; set; }
-        public JsonElement ResponseContent { get; set; }
+        public JsonElement? ResponseContent { get; set; }
     }
 }

@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace NtpNeocropsClient
 {
@@ -22,10 +23,15 @@ namespace NtpNeocropsClient
         {
             InitializeComponent();
 
-            if (user != null) {
+            if (user != null)
+            {
                 selectedUser = user;
                 textBoxFullName.Text = user.FullName;
                 textBoxEmail.Text = user.Email;
+            }
+            else
+            {
+                buttonDelete.Hide();
             }
         }
 
@@ -49,36 +55,74 @@ namespace NtpNeocropsClient
             try
             {
                 var farmId = NeocropsState.LoggedInUser.UserFarm.Id;
-                var data = new User();
 
                 if (selectedUser == null)
                 {
-                    data = await ApiClient.PostAsync<User>($"/farm/{farmId}/users", new UserDetailsDto
+                    var data = await ApiClient.PostAsync<User>($"/farm/{farmId}/users", new UserDetailsDto
                     {
                         FullName = fullName,
                         Email = email
                     });
+
+                    if (data != null)
+                    {
+                        MessageBox.Show(Strings.SuccessfullySaved);
+                    }
                 }
                 else
                 {
-                    data = await ApiClient.PatchAsync<User>($"/farm/{farmId}/users/{selectedUser.Id}", new UserDetailsDto
+                    var data = await ApiClient.PatchAsync<User>($"/farm/{farmId}/users/{selectedUser.Id}", new UserDetailsDto
                     {
                         FullName = fullName,
                         Email = email
                     });
+
+                    if (data != null)
+                    {
+                        MessageBox.Show(Strings.SuccessfullyUpdated);
+                    }
                 }
 
-                if (data != null)
-                {
-                    MessageBox.Show(Strings.SuccessfullySaved);
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
-                }
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             catch (ApiException ex)
             {
                 MessageBox.Show(ex.Message);
                 return;
+            }
+        }
+
+        private async void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (selectedUser != null)
+            {
+                var result = MessageBox.Show(
+                    Strings.AreYouSure,
+                    Strings.Confirm,
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (result != DialogResult.Yes)
+                {
+                    return;
+                }
+
+                try
+                {
+                    var farmId = NeocropsState.LoggedInUser.UserFarm.Id;
+                    await ApiClient.DeleteAsync<object>($"/farm/{farmId}/users/{selectedUser.Id}");
+
+                    MessageBox.Show(Strings.SuccessfullyDeleted);
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                catch (ApiException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
             }
         }
     }

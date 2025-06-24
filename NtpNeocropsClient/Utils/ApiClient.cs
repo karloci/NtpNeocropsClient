@@ -225,6 +225,31 @@ namespace ClassLibrary
             return default;
         }
 
+        public static async Task<T?> DeleteAsync<T>(string endpoint)
+        {
+            AddAuthorizationHeader();
+
+            var response = await SendRequestToServer(() => httpClient.DeleteAsync(endpoint));
+
+            var responseContent = await response.Content.ReadAsStringAsync();
+            await LogAsync(new ApiLogEntry
+            {
+                Timestamp = DateTime.UtcNow,
+                HttpMethod = "DELETE",
+                Endpoint = endpoint,
+                Payload = null,
+                ResponseContent = null
+            });
+
+            if (response.IsSuccessStatusCode)
+            {
+                return default;
+            }
+
+            await HandleErrorResponse(response);
+            return default;
+        }
+
         private static async Task LogAsync(ApiLogEntry logEntry)
         {
             List<ApiLogEntry> logs;

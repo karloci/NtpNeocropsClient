@@ -69,6 +69,7 @@
             resources.ApplyResources(buttonDelete, "buttonDelete");
             buttonDelete.Name = "buttonDelete";
             buttonDelete.UseVisualStyleBackColor = true;
+            buttonDelete.Click += buttonDelete_Click;
             // 
             // UserDetailsForm
             // 

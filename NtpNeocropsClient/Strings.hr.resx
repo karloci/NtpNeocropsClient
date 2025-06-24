@@ -159,4 +159,16 @@
   <data name="Email" xml:space="preserve">
     <value>Adresa e-pošte</value>
   </data>
+  <data name="SuccessfullyUpdated" xml:space="preserve">
+    <value>Uspješno promijenjeno!</value>
+  </data>
+  <data name="SuccessfullyDeleted" xml:space="preserve">
+    <value>Uspješno obrisano!</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Potvrdite</value>
+  </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>Jeste li sigurni?</value>
+  </data>
 </root>

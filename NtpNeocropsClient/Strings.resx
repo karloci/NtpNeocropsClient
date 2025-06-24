@@ -159,4 +159,16 @@
   <data name="Email" xml:space="preserve">
     <value>Email</value>
   </data>
+  <data name="SuccessfullyUpdated" xml:space="preserve">
+    <value>Successfully updated</value>
+  </data>
+  <data name="SuccessfullyDeleted" xml:space="preserve">
+    <value>Successfully deleted!</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>Are you sure?</value>
+  </data>
 </root>

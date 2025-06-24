@@ -126,7 +126,7 @@
     <value>8, 12</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 32</value>
+    <value>59, 15</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -147,10 +147,10 @@
     <value>5</value>
   </data>
   <data name="textBoxFullName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 57</value>
+    <value>8, 30</value>
   </data>
   <data name="textBoxFullName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>666, 39</value>
+    <value>351, 23</value>
   </data>
   <data name="textBoxFullName.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -171,10 +171,10 @@
     <value>True</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 129</value>
+    <value>8, 77</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 32</value>
+    <value>36, 15</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -195,10 +195,10 @@
     <value>3</value>
   </data>
   <data name="textBoxEmail.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 164</value>
+    <value>8, 95</value>
   </data>
   <data name="textBoxEmail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>666, 39</value>
+    <value>351, 23</value>
   </data>
   <data name="textBoxEmail.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -216,10 +216,10 @@
     <value>2</value>
   </data>
   <data name="buttonSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>559, 265</value>
+    <value>280, 152</value>
   </data>
   <data name="buttonSave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 43</value>
+    <value>79, 23</value>
   </data>
   <data name="buttonSave.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -240,10 +240,10 @@
     <value>1</value>
   </data>
   <data name="buttonDelete.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 263</value>
+    <value>8, 151</value>
   </data>
   <data name="buttonDelete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 47</value>
+    <value>79, 24</value>
   </data>
   <data name="buttonDelete.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -267,14 +267,14 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>13, 32</value>
+    <value>7, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>695, 452</value>
+    <value>371, 185</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>11, 13, 11, 13</value>
+    <value>6, 6, 6, 6</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">

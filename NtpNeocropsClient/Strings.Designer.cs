@@ -70,6 +70,24 @@ namespace NtpNeocropsClient {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure?.
+        /// </summary>
+        internal static string AreYouSure {
+            get {
+                return ResourceManager.GetString("AreYouSure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm.
+        /// </summary>
+        internal static string Confirm {
+            get {
+                return ResourceManager.GetString("Confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         internal static string Email {
@@ -151,11 +169,29 @@ namespace NtpNeocropsClient {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Successfully deleted!.
+        /// </summary>
+        internal static string SuccessfullyDeleted {
+            get {
+                return ResourceManager.GetString("SuccessfullyDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Successfully saved!.
         /// </summary>
         internal static string SuccessfullySaved {
             get {
                 return ResourceManager.GetString("SuccessfullySaved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully updated.
+        /// </summary>
+        internal static string SuccessfullyUpdated {
+            get {
+                return ResourceManager.GetString("SuccessfullyUpdated", resourceCulture);
             }
         }
         
