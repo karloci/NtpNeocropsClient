@@ -49,5 +49,12 @@ namespace NtpNeocropsClient
             ProfileForm profileForm = new ProfileForm();
             profileForm.Show();
         }
+
+        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            UsersForm usersForm = new UsersForm();
+            usersForm.Show();
+        }
     }
 }

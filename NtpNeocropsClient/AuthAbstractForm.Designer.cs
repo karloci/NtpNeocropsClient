@@ -30,24 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuthAbstractForm));
             menuStrip1 = new MenuStrip();
-            dashboardToolStripMenuItem = new ToolStripMenuItem();
             accountToolStripMenuItem = new ToolStripMenuItem();
             profileToolStripMenuItem = new ToolStripMenuItem();
             logoutToolStripMenuItem = new ToolStripMenuItem();
+            dashboardToolStripMenuItem = new ToolStripMenuItem();
+            usersToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             resources.ApplyResources(menuStrip1, "menuStrip1");
-            menuStrip1.Items.AddRange(new ToolStripItem[] { accountToolStripMenuItem, dashboardToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { accountToolStripMenuItem, dashboardToolStripMenuItem, usersToolStripMenuItem });
             menuStrip1.Name = "menuStrip1";
-            // 
-            // dashboardToolStripMenuItem
-            // 
-            resources.ApplyResources(dashboardToolStripMenuItem, "dashboardToolStripMenuItem");
-            dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
-            dashboardToolStripMenuItem.Click += dashboardToolStripMenuItem_Click;
             // 
             // accountToolStripMenuItem
             // 
@@ -66,6 +61,18 @@
             resources.ApplyResources(logoutToolStripMenuItem, "logoutToolStripMenuItem");
             logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
             logoutToolStripMenuItem.Click += logoutToolStripMenuItem_Click;
+            // 
+            // dashboardToolStripMenuItem
+            // 
+            resources.ApplyResources(dashboardToolStripMenuItem, "dashboardToolStripMenuItem");
+            dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
+            dashboardToolStripMenuItem.Click += dashboardToolStripMenuItem_Click;
+            // 
+            // usersToolStripMenuItem
+            // 
+            resources.ApplyResources(usersToolStripMenuItem, "usersToolStripMenuItem");
+            usersToolStripMenuItem.Name = "usersToolStripMenuItem";
+            usersToolStripMenuItem.Click += usersToolStripMenuItem_Click;
             // 
             // AuthAbstractForm
             // 
@@ -87,5 +94,6 @@
         private ToolStripMenuItem logoutToolStripMenuItem;
         private ToolStripMenuItem dashboardToolStripMenuItem;
         private ToolStripMenuItem profileToolStripMenuItem;
+        private ToolStripMenuItem usersToolStripMenuItem;
     }
 }
