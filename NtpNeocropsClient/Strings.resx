@@ -117,14 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AllFieldsAreRequired" xml:space="preserve">
-    <value>All fields are required!</value>
-  </data>
   <data name="EmailIsNotInCorrectFormat" xml:space="preserve">
     <value>Email is not in correct format!</value>
   </data>
   <data name="FarmIdIsNotInCorrectFormat" xml:space="preserve">
     <value>Farm ID is not in correct format!</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Full name</value>
   </data>
   <data name="Humidity" xml:space="preserve">
     <value>Humidity</value>
@@ -152,5 +152,11 @@
   </data>
   <data name="WindSpeed" xml:space="preserve">
     <value>Wind speed</value>
+  </data>
+  <data name="AllFieldsAreRequired" xml:space="preserve">
+    <value>All fields are required!</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
   </data>
 </root>

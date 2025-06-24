@@ -70,6 +70,15 @@ namespace NtpNeocropsClient {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        internal static string Email {
+            get {
+                return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email is not in correct format!.
         /// </summary>
         internal static string EmailIsNotInCorrectFormat {
@@ -84,6 +93,15 @@ namespace NtpNeocropsClient {
         internal static string FarmIdIsNotInCorrectFormat {
             get {
                 return ResourceManager.GetString("FarmIdIsNotInCorrectFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Full name.
+        /// </summary>
+        internal static string FullName {
+            get {
+                return ResourceManager.GetString("FullName", resourceCulture);
             }
         }
         

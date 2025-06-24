@@ -28,12 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "UsersForm";
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UsersForm));
+            dataGridViewUsers = new DataGridView();
+            buttonNewUser = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewUsers).BeginInit();
+            SuspendLayout();
+            // 
+            // dataGridViewUsers
+            // 
+            dataGridViewUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            resources.ApplyResources(dataGridViewUsers, "dataGridViewUsers");
+            dataGridViewUsers.Name = "dataGridViewUsers";
+            // 
+            // buttonNewUser
+            // 
+            resources.ApplyResources(buttonNewUser, "buttonNewUser");
+            buttonNewUser.Name = "buttonNewUser";
+            buttonNewUser.UseVisualStyleBackColor = true;
+            buttonNewUser.Click += buttonNewUser_Click;
+            // 
+            // UsersForm
+            // 
+            resources.ApplyResources(this, "$this");
+            AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(buttonNewUser);
+            Controls.Add(dataGridViewUsers);
+            Name = "UsersForm";
+            Load += UsersForm_Load;
+            Controls.SetChildIndex(dataGridViewUsers, 0);
+            Controls.SetChildIndex(buttonNewUser, 0);
+            ((System.ComponentModel.ISupportInitialize)dataGridViewUsers).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private DataGridView dataGridViewUsers;
+        private Button buttonNewUser;
     }
 }
