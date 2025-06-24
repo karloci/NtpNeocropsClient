@@ -18,20 +18,14 @@ namespace NtpNeocropsClient
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            MainAsync().GetAwaiter().GetResult();
-        }
 
-        static async Task MainAsync()
-        {
             using (var key = Registry.CurrentUser.OpenSubKey(@"Software\NeocropsApp\Language"))
             {
                 var preferedLanguage = key?.GetValue("Language") as string ?? "en";
-
                 var culture = new CultureInfo(preferedLanguage);
                 Thread.CurrentThread.CurrentCulture = culture;
                 Thread.CurrentThread.CurrentUICulture = culture;
             }
-
 
             Credential? cred = NeocropsState.GetCredentials();
 
@@ -43,10 +37,10 @@ namespace NtpNeocropsClient
             {
                 try
                 {
-                    var data = await ApiClient.PostAsync<AuthenticationResponseDto>("/authentication/refresh-token", new RefreshTokenRequestDto
+                    var data = Task.Run(() => ApiClient.PostAsync<AuthenticationResponseDto>("/authentication/refresh-token", new RefreshTokenRequestDto
                     {
                         RefreshToken = cred.Password
-                    });
+                    })).GetAwaiter().GetResult();
 
                     if (data != null)
                     {

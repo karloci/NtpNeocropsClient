@@ -32,6 +32,7 @@ namespace NtpNeocropsClient
             {
                 textBoxFullName.Text = loggedInUser.FullName;
                 textBoxEmail.Text = loggedInUser.Email;
+                LoadAvatar();
             }
         }
 
@@ -116,6 +117,51 @@ namespace NtpNeocropsClient
                     textBoxRepeatNewPassword.Text = "";
                     return;
                 }
+            }
+            catch (ApiException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+
+        private async void LoadAvatar()
+        {
+            var avatar = await ApiClient.GetUserAvatarAsync();
+            if (avatar != null)
+            {
+                pictureBoxAvatar.Image = avatar;
+                buttonDeleteAvatar.Show();
+            }
+            else
+            {
+                pictureBoxAvatar.Image = Properties.Resources.DefaultAvatar;
+                buttonDeleteAvatar.Hide();
+            }
+        }
+
+        private async void buttonSaveAvatar_Click(object sender, EventArgs e)
+        {
+            using var openFileDialog = new OpenFileDialog
+            {
+                Filter = "Images|*.jpg;*.jpeg;*.png"
+            };
+
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                using var uploadedAvatar = Image.FromFile(filePath);
+                await ApiClient.UploadUserAvatarAsync(uploadedAvatar);
+                LoadAvatar();
+            }
+        }
+
+        private async void buttonDeleteAvatar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                await ApiClient.DeleteAsync<object>("/profile/avatar");
+                LoadAvatar();
             }
             catch (ApiException ex)
             {

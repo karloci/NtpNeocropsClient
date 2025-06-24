@@ -4,6 +4,7 @@ using NtpNeocropsClient.Entity;
 using NtpNeocropsClient.Utils;
 using System;
 using System.Diagnostics;
+using System.Drawing.Imaging;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -279,6 +280,40 @@ namespace ClassLibrary
 
                 await File.WriteAllTextAsync(loggedUserLogsFile, newJson);
             }
+        }
+
+        public static async Task<Image?> GetUserAvatarAsync()
+        {
+            AddAuthorizationHeader();
+
+            var response = await httpClient.GetAsync("/profile/avatar");
+
+            if (response.StatusCode == HttpStatusCode.NoContent)
+            {
+                return null;
+            }
+
+            if (response.IsSuccessStatusCode)
+            {
+                var imageStream = await response.Content.ReadAsStreamAsync();
+                return Image.FromStream(imageStream);
+            }
+
+            return null;
+        }
+
+        public static async Task UploadUserAvatarAsync(Image image)
+        {
+            AddAuthorizationHeader();
+
+            using var ms = new MemoryStream();
+
+            image.Save(ms, ImageFormat.Jpeg);
+            var content = new ByteArrayContent(ms.ToArray());
+            content.Headers.ContentType = new MediaTypeHeaderValue("image/jpeg");
+
+            var response = await httpClient.PostAsync("/profile/avatar", content);
+            response.EnsureSuccessStatusCode();
         }
     }
 }

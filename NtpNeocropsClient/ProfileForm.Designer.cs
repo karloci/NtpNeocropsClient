@@ -43,6 +43,10 @@
             label7 = new Label();
             textBoxRepeatNewPassword = new TextBox();
             buttonChangePassword = new Button();
+            pictureBoxAvatar = new PictureBox();
+            buttonSaveAvatar = new Button();
+            buttonDeleteAvatar = new Button();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxAvatar).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -119,10 +123,33 @@
             buttonChangePassword.UseVisualStyleBackColor = true;
             buttonChangePassword.Click += buttonChangePassword_Click;
             // 
+            // pictureBoxAvatar
+            // 
+            resources.ApplyResources(pictureBoxAvatar, "pictureBoxAvatar");
+            pictureBoxAvatar.Name = "pictureBoxAvatar";
+            pictureBoxAvatar.TabStop = false;
+            // 
+            // buttonSaveAvatar
+            // 
+            resources.ApplyResources(buttonSaveAvatar, "buttonSaveAvatar");
+            buttonSaveAvatar.Name = "buttonSaveAvatar";
+            buttonSaveAvatar.UseVisualStyleBackColor = true;
+            buttonSaveAvatar.Click += buttonSaveAvatar_Click;
+            // 
+            // buttonDeleteAvatar
+            // 
+            resources.ApplyResources(buttonDeleteAvatar, "buttonDeleteAvatar");
+            buttonDeleteAvatar.Name = "buttonDeleteAvatar";
+            buttonDeleteAvatar.UseVisualStyleBackColor = true;
+            buttonDeleteAvatar.Click += buttonDeleteAvatar_Click;
+            // 
             // ProfileForm
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(buttonDeleteAvatar);
+            Controls.Add(buttonSaveAvatar);
+            Controls.Add(pictureBoxAvatar);
             Controls.Add(buttonChangePassword);
             Controls.Add(textBoxRepeatNewPassword);
             Controls.Add(label7);
@@ -153,6 +180,10 @@
             Controls.SetChildIndex(label7, 0);
             Controls.SetChildIndex(textBoxRepeatNewPassword, 0);
             Controls.SetChildIndex(buttonChangePassword, 0);
+            Controls.SetChildIndex(pictureBoxAvatar, 0);
+            Controls.SetChildIndex(buttonSaveAvatar, 0);
+            Controls.SetChildIndex(buttonDeleteAvatar, 0);
+            ((System.ComponentModel.ISupportInitialize)pictureBoxAvatar).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -173,5 +204,8 @@
         private Label label7;
         private TextBox textBoxRepeatNewPassword;
         private Button buttonChangePassword;
+        private PictureBox pictureBoxAvatar;
+        private Button buttonSaveAvatar;
+        private Button buttonDeleteAvatar;
     }
 }

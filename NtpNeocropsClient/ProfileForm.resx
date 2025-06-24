@@ -117,103 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
-  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label7.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;textBoxFullName.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="textBoxFullName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 110</value>
-  </data>
-  <data name="buttonSave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="textBoxCurrentPassword.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 92</value>
-  </data>
-  <data name="&gt;&gt;buttonChangePassword.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;textBoxFullName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Profile</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Personal data</value>
-  </data>
-  <data name="&gt;&gt;textBoxFullName.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 15</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>ProfileForm</value>
-  </data>
-  <data name="textBoxEmail.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 173</value>
-  </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label3.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 15.75pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;textBoxRepeatNewPassword.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="textBoxEmail.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="textBoxFullName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>358, 23</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 30</value>
-  </data>
-  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;textBoxEmail.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 15.75pt, style=Bold</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 45</value>
   </data>
-  <data name="textBoxRepeatNewPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>430, 239</value>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 30</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Personal data</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -221,134 +143,152 @@
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="buttonChangePassword.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Full name</value>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>16</value>
   </data>
-  <data name="textBoxEmail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>358, 23</value>
-  </data>
-  <data name="&gt;&gt;buttonSave.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Change password</value>
-  </data>
-  <data name="&gt;&gt;buttonChangePassword.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 15.75pt, style=Bold</value>
-  </data>
-  <data name="buttonSave.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="textBoxNewPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>430, 173</value>
-  </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 15</value>
-  </data>
-  <data name="&gt;&gt;label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="buttonSave.Text" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label5.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;textBoxRepeatNewPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>430, 221</value>
-  </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>183, 30</value>
-  </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
-  </data>
-  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;textBoxRepeatNewPassword.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;textBoxEmail.Name" xml:space="preserve">
-    <value>textBoxEmail</value>
-  </data>
-  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>430, 92</value>
-  </data>
-  <data name="&gt;&gt;label7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="buttonSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>295, 213</value>
-  </data>
-  <data name="textBoxRepeatNewPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>358, 23</value>
-  </data>
-  <data name="&gt;&gt;textBoxCurrentPassword.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;textBoxNewPassword.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;buttonChangePassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 155</value>
   </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;textBoxCurrentPassword.Name" xml:space="preserve">
-    <value>textBoxCurrentPassword</value>
-  </data>
-  <data name="&gt;&gt;textBoxCurrentPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="textBoxNewPassword.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
-    <value>*</value>
-  </data>
-  <data name="&gt;&gt;buttonSave.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 15</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Full name</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="textBoxFullName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 173</value>
+  </data>
+  <data name="textBoxFullName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>358, 23</value>
+  </data>
+  <data name="textBoxFullName.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;textBoxFullName.Name" xml:space="preserve">
+    <value>textBoxFullName</value>
+  </data>
+  <data name="&gt;&gt;textBoxFullName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxFullName.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;textBoxFullName.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 221</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 15</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>13</value>
+  </data>
+  <data name="textBoxEmail.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 239</value>
+  </data>
+  <data name="textBoxEmail.Size" type="System.Drawing.Size, System.Drawing">
+    <value>358, 23</value>
+  </data>
+  <data name="textBoxEmail.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;textBoxEmail.Name" xml:space="preserve">
+    <value>textBoxEmail</value>
+  </data>
+  <data name="&gt;&gt;textBoxEmail.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxEmail.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;textBoxEmail.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="buttonSave.Location" type="System.Drawing.Point, System.Drawing">
+    <value>295, 279</value>
+  </data>
+  <data name="buttonSave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="buttonSave.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="buttonSave.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="&gt;&gt;buttonSave.Name" xml:space="preserve">
+    <value>buttonSave</value>
+  </data>
+  <data name="&gt;&gt;buttonSave.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonSave.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonSave.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 15.75pt, style=Bold</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>430, 45</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>183, 30</value>
+  </data>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
   </data>
   <data name="&gt;&gt;label4.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -356,152 +296,425 @@
   <data name="&gt;&gt;label4.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;textBoxCurrentPassword.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;textBoxEmail.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;textBoxNewPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>430, 155</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 15</value>
-  </data>
-  <data name="textBoxCurrentPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>430, 110</value>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
-  </data>
-  <data name="&gt;&gt;buttonSave.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="textBoxFullName.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;buttonSave.Name" xml:space="preserve">
-    <value>buttonSave</value>
-  </data>
-  <data name="textBoxCurrentPassword.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
-    <value>*</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>New password</value>
-  </data>
-  <data name="&gt;&gt;buttonChangePassword.Name" xml:space="preserve">
-    <value>buttonChangePassword</value>
-  </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>430, 45</value>
-  </data>
-  <data name="textBoxCurrentPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>358, 23</value>
-  </data>
-  <data name="&gt;&gt;textBoxEmail.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 15</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="textBoxNewPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>358, 23</value>
-  </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 15</value>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>430, 92</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 15</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>800, 450</value>
-  </data>
-  <data name="&gt;&gt;textBoxFullName.Name" xml:space="preserve">
-    <value>textBoxFullName</value>
-  </data>
-  <data name="&gt;&gt;label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label7.Name" xml:space="preserve">
-    <value>label7</value>
-  </data>
-  <data name="&gt;&gt;label5.Name" xml:space="preserve">
-    <value>label5</value>
-  </data>
-  <data name="buttonChangePassword.Text" xml:space="preserve">
-    <value>Change password</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>NtpNeocropsClient.AuthAbstractForm, NtpNeocropsClient, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="buttonChangePassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>137, 23</value>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
     <value>Current password</value>
   </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>Repeat new password</value>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
   </data>
-  <data name="label7.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="textBoxRepeatNewPassword.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="textBoxCurrentPassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>430, 110</value>
+  </data>
+  <data name="textBoxCurrentPassword.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
     <value>*</value>
   </data>
-  <data name="textBoxRepeatNewPassword.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+  <data name="textBoxCurrentPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>358, 23</value>
+  </data>
+  <data name="textBoxCurrentPassword.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;textBoxCurrentPassword.Name" xml:space="preserve">
+    <value>textBoxCurrentPassword</value>
+  </data>
+  <data name="&gt;&gt;textBoxCurrentPassword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxCurrentPassword.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;textBoxCurrentPassword.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>430, 155</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 15</value>
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
-  <data name="textBoxNewPassword.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+  <data name="label6.Text" xml:space="preserve">
+    <value>New password</value>
   </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
   </data>
-  <data name="&gt;&gt;textBoxNewPassword.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="buttonChangePassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>651, 290</value>
+  <data name="textBoxNewPassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>430, 173</value>
+  </data>
+  <data name="textBoxNewPassword.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="textBoxNewPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>358, 23</value>
+  </data>
+  <data name="textBoxNewPassword.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
   </data>
   <data name="&gt;&gt;textBoxNewPassword.Name" xml:space="preserve">
     <value>textBoxNewPassword</value>
   </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>Email</value>
+  <data name="&gt;&gt;textBoxNewPassword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxNewPassword.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;textBoxNewPassword.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="label7.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>430, 221</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 15</value>
+  </data>
+  <data name="label7.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Repeat new password</value>
+  </data>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
+  </data>
+  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="textBoxRepeatNewPassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>430, 239</value>
+  </data>
+  <data name="textBoxRepeatNewPassword.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="textBoxRepeatNewPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>358, 23</value>
+  </data>
+  <data name="textBoxRepeatNewPassword.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;textBoxRepeatNewPassword.Name" xml:space="preserve">
+    <value>textBoxRepeatNewPassword</value>
+  </data>
+  <data name="&gt;&gt;textBoxRepeatNewPassword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxRepeatNewPassword.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;textBoxRepeatNewPassword.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="buttonChangePassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>651, 290</value>
+  </data>
+  <data name="buttonChangePassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 23</value>
+  </data>
+  <data name="buttonChangePassword.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="buttonChangePassword.Text" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="&gt;&gt;buttonChangePassword.Name" xml:space="preserve">
+    <value>buttonChangePassword</value>
+  </data>
+  <data name="&gt;&gt;buttonChangePassword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonChangePassword.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonChangePassword.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="pictureBoxAvatar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        /9j/4AAQSkZJRgABAQEAAAAAAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwg
+        JC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIy
+        MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wgARCAPUA9QDASIAAhEBAxEB/8QA
+        GwABAAIDAQEAAAAAAAAAAAAAAAYHAwQFAgH/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAQL/2gAMAwEAAhAD
+        EAAAALcG8gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        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
+        2Q==
+</value>
+  </data>
+  <data name="pictureBoxAvatar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 78</value>
+  </data>
+  <data name="pictureBoxAvatar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 68</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="pictureBoxAvatar.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="pictureBoxAvatar.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxAvatar.Name" xml:space="preserve">
+    <value>pictureBoxAvatar</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxAvatar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxAvatar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxAvatar.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="buttonSaveAvatar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>96, 124</value>
+  </data>
+  <data name="buttonSaveAvatar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="buttonSaveAvatar.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="buttonSaveAvatar.Text" xml:space="preserve">
+    <value>Change</value>
+  </data>
+  <data name="&gt;&gt;buttonSaveAvatar.Name" xml:space="preserve">
+    <value>buttonSaveAvatar</value>
+  </data>
+  <data name="&gt;&gt;buttonSaveAvatar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonSaveAvatar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonSaveAvatar.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="buttonDeleteAvatar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>177, 124</value>
+  </data>
+  <data name="buttonDeleteAvatar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="buttonDeleteAvatar.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="buttonDeleteAvatar.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="&gt;&gt;buttonDeleteAvatar.Name" xml:space="preserve">
+    <value>buttonDeleteAvatar</value>
+  </data>
+  <data name="&gt;&gt;buttonDeleteAvatar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonDeleteAvatar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonDeleteAvatar.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>88</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>800, 450</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>11, 13, 11, 13</value>
   </data>
-  <data name="&gt;&gt;textBoxRepeatNewPassword.Name" xml:space="preserve">
-    <value>textBoxRepeatNewPassword</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Profile</value>
   </data>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>88</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, System.Private.CoreLib, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
-    <value>hr</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>ProfileForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>NtpNeocropsClient.AuthAbstractForm, NtpNeocropsClient, Culture=neutral, PublicKeyToken=null</value>
+  </data>
 </root>
