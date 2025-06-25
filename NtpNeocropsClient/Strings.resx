@@ -177,4 +177,25 @@
   <data name="AmountAndPriceMustBeNumbers" xml:space="preserve">
     <value>Amount and Price fields must be numbers!</value>
   </data>
+  <data name="Supply" xml:space="preserve">
+    <value>Supply</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="InvoiceNo" xml:space="preserve">
+    <value>Invoice No</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="Manufacturer" xml:space="preserve">
+    <value>Manufacturer</value>
+  </data>
 </root>

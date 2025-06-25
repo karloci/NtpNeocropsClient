@@ -15,5 +15,10 @@ namespace NtpNeocropsClient.Modules.SupplyModule.Entity
         public string Manufacturer { get; set; } = string.Empty;
 
         public string DisplayText => $"{Name} ({Manufacturer}) - [{MeasureUnit}]";
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

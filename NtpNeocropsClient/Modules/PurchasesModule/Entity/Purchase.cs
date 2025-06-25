@@ -18,5 +18,10 @@ namespace NtpNeocropsClient.Modules.PurchasesModule.Entity
         public DateTime Date { get; set; }
         public string? InvoiceNo { get; set; }
         public string? Comment { get; set; }
+
+        public string? SupplyName => Supply?.Name;
+        public string? ManufacturerName => Supply?.Manufacturer;
+        public string AmountWithUnit => $"{Amount} {Supply?.MeasureUnit}";
+        public string PriceInEuros => $"{Price:F2} €";
     }
 }

@@ -118,17 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 15</value>
+  <data name="buttonAddPurchase.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 27</value>
   </data>
-  <data name="&gt;&gt;dataGridViewPurchases.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="buttonAddPurchase.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 23</value>
   </data>
-  <data name="&gt;&gt;dataGridViewPurchases.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="buttonAddPurchase.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="buttonAddPurchase.Text" xml:space="preserve">
+    <value>Add purchase</value>
   </data>
   <data name="&gt;&gt;buttonAddPurchase.Name" xml:space="preserve">
     <value>buttonAddPurchase</value>
+  </data>
+  <data name="&gt;&gt;buttonAddPurchase.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonAddPurchase.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonAddPurchase.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="dataGridViewPurchases.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 56</value>
@@ -136,53 +149,127 @@
   <data name="dataGridViewPurchases.Size" type="System.Drawing.Size, System.Drawing">
     <value>776, 382</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="buttonAddPurchase.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="dataGridViewPurchases.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;dataGridViewPurchases.Name" xml:space="preserve">
     <value>dataGridViewPurchases</value>
   </data>
-  <data name="buttonAddPurchase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 23</value>
+  <data name="&gt;&gt;dataGridViewPurchases.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>NtpNeocropsClient.AuthAbstractForm, NtpNeocropsClient, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="buttonAddPurchase.Text" xml:space="preserve">
-    <value>Add purchase</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>800, 450</value>
-  </data>
-  <data name="&gt;&gt;buttonAddPurchase.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;buttonAddPurchase.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>PurchasesForm</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Purchases</value>
-  </data>
-  <data name="&gt;&gt;buttonAddPurchase.Parent" xml:space="preserve">
+  <data name="&gt;&gt;dataGridViewPurchases.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="buttonAddPurchase.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 27</value>
+  <data name="&gt;&gt;dataGridViewPurchases.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
-  <data name="dataGridViewPurchases.TabIndex" type="System.Int32, mscorlib">
+  <data name="comboBoxSort.Location" type="System.Drawing.Point, System.Drawing">
+    <value>667, 28</value>
+  </data>
+  <data name="comboBoxSort.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
+  </data>
+  <data name="comboBoxSort.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;comboBoxSort.Name" xml:space="preserve">
+    <value>comboBoxSort</value>
+  </data>
+  <data name="&gt;&gt;comboBoxSort.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBoxSort.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;comboBoxSort.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>608, 30</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 19</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Sort by:</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;dataGridViewPurchases.ZOrder" xml:space="preserve">
+  <data name="textBoxFilter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>502, 27</value>
+  </data>
+  <data name="textBoxFilter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="textBoxFilter.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;textBoxFilter.Name" xml:space="preserve">
+    <value>textBoxFilter</value>
+  </data>
+  <data name="&gt;&gt;textBoxFilter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxFilter.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;textBoxFilter.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>438, 30</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 19</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Filter by:</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, System.Private.CoreLib, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
-    <value>hr</value>
-  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>800, 450</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Purchases</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>PurchasesForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>NtpNeocropsClient.AuthAbstractForm, NtpNeocropsClient, Culture=neutral, PublicKeyToken=null</value>
+  </data>
 </root>
