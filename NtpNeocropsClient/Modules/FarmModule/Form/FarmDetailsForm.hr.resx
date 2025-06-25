@@ -151,4 +151,7 @@
   <data name="buttonSave.Text" xml:space="preserve">
     <value>Spremi</value>
   </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Detalji farme</value>
+  </data>
 </root>

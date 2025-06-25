@@ -11,6 +11,7 @@ using System.Globalization;
 using System.IO;
 using System.Net.Http;
 using System.Security.Policy;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -68,8 +69,13 @@ namespace NtpNeocropsClient
                     BorderStyle = BorderStyle.FixedSingle
                 };
 
-                var lines = data.Select(f => $"{f.Time:HH:mm} - {f.Weather}");
-                weatherInformation.Text = string.Join(Environment.NewLine, lines);
+                var stringBuilder = new StringBuilder();
+                foreach (Forecast forecast in data)
+                {
+                    stringBuilder.AppendLine($"{forecast.Time:HH:mm} - {forecast.Weather}");
+                }
+                weatherInformation.Text = stringBuilder.ToString();
+
                 layout.Controls.Add(weatherInformation, 1, 0);
 
                 this.Controls.Add(layout);

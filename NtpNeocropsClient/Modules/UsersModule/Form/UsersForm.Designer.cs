@@ -36,8 +36,8 @@
             // 
             // dataGridViewUsers
             // 
-            dataGridViewUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             resources.ApplyResources(dataGridViewUsers, "dataGridViewUsers");
+            dataGridViewUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewUsers.Name = "dataGridViewUsers";
             // 
             // buttonNewUser
