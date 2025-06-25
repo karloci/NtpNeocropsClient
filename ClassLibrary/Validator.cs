@@ -10,9 +10,35 @@ namespace ClassLibrary
 {
     public class Validator
     {
-        public static bool IsRequired(string? value)
+        public static bool IsRequired(object? value)
         {
-            return !string.IsNullOrWhiteSpace(value) && !string.IsNullOrEmpty(value);
+            if (value == null)
+            {
+                return false;
+            }
+
+            if (value is string)
+            {
+                var str = (string)value;
+                return !string.IsNullOrWhiteSpace(str);
+            }
+
+            if (value is int)
+            {
+                return (int)value != 0;
+            }
+
+            if (value is float)
+            {
+                return (float)value != 0f;
+            }
+
+            if (value is double)
+            {
+                return (double)value != 0.0;
+            }
+
+            return false;
         }
 
         public static bool HasMinLength(string? value, int minLength)

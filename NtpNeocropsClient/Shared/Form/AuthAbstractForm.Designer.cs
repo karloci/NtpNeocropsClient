@@ -46,72 +46,73 @@
             // 
             // menuStrip1
             // 
-            resources.ApplyResources(menuStrip1, "menuStrip1");
             menuStrip1.Items.AddRange(new ToolStripItem[] { accountToolStripMenuItem, dashboardToolStripMenuItem, farmToolStripMenuItem, inventoryToolStripMenuItem });
+            resources.ApplyResources(menuStrip1, "menuStrip1");
             menuStrip1.Name = "menuStrip1";
             // 
             // accountToolStripMenuItem
             // 
-            resources.ApplyResources(accountToolStripMenuItem, "accountToolStripMenuItem");
             accountToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { profileToolStripMenuItem, logoutToolStripMenuItem });
             accountToolStripMenuItem.Name = "accountToolStripMenuItem";
+            resources.ApplyResources(accountToolStripMenuItem, "accountToolStripMenuItem");
             // 
             // profileToolStripMenuItem
             // 
-            resources.ApplyResources(profileToolStripMenuItem, "profileToolStripMenuItem");
             profileToolStripMenuItem.Name = "profileToolStripMenuItem";
+            resources.ApplyResources(profileToolStripMenuItem, "profileToolStripMenuItem");
             profileToolStripMenuItem.Click += profileToolStripMenuItem_Click;
             // 
             // logoutToolStripMenuItem
             // 
-            resources.ApplyResources(logoutToolStripMenuItem, "logoutToolStripMenuItem");
             logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            resources.ApplyResources(logoutToolStripMenuItem, "logoutToolStripMenuItem");
             logoutToolStripMenuItem.Click += logoutToolStripMenuItem_Click;
             // 
             // dashboardToolStripMenuItem
             // 
-            resources.ApplyResources(dashboardToolStripMenuItem, "dashboardToolStripMenuItem");
             dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
+            resources.ApplyResources(dashboardToolStripMenuItem, "dashboardToolStripMenuItem");
             dashboardToolStripMenuItem.Click += dashboardToolStripMenuItem_Click;
             // 
             // farmToolStripMenuItem
             // 
-            resources.ApplyResources(farmToolStripMenuItem, "farmToolStripMenuItem");
             farmToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { farmDetailsToolStripMenuItem, usersToolStripMenuItem1 });
             farmToolStripMenuItem.Name = "farmToolStripMenuItem";
+            resources.ApplyResources(farmToolStripMenuItem, "farmToolStripMenuItem");
             // 
             // farmDetailsToolStripMenuItem
             // 
-            resources.ApplyResources(farmDetailsToolStripMenuItem, "farmDetailsToolStripMenuItem");
             farmDetailsToolStripMenuItem.Name = "farmDetailsToolStripMenuItem";
+            resources.ApplyResources(farmDetailsToolStripMenuItem, "farmDetailsToolStripMenuItem");
             farmDetailsToolStripMenuItem.Click += farmDetailsToolStripMenuItem_Click;
             // 
             // usersToolStripMenuItem1
             // 
-            resources.ApplyResources(usersToolStripMenuItem1, "usersToolStripMenuItem1");
             usersToolStripMenuItem1.Name = "usersToolStripMenuItem1";
+            resources.ApplyResources(usersToolStripMenuItem1, "usersToolStripMenuItem1");
             usersToolStripMenuItem1.Click += usersToolStripMenuItem1_Click;
             // 
             // inventoryToolStripMenuItem
             // 
-            resources.ApplyResources(inventoryToolStripMenuItem, "inventoryToolStripMenuItem");
             inventoryToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { stockStatusToolStripMenuItem, purchasesToolStripMenuItem, consumptionsToolStripMenuItem });
             inventoryToolStripMenuItem.Name = "inventoryToolStripMenuItem";
+            resources.ApplyResources(inventoryToolStripMenuItem, "inventoryToolStripMenuItem");
             // 
             // stockStatusToolStripMenuItem
             // 
-            resources.ApplyResources(stockStatusToolStripMenuItem, "stockStatusToolStripMenuItem");
             stockStatusToolStripMenuItem.Name = "stockStatusToolStripMenuItem";
+            resources.ApplyResources(stockStatusToolStripMenuItem, "stockStatusToolStripMenuItem");
             // 
             // purchasesToolStripMenuItem
             // 
-            resources.ApplyResources(purchasesToolStripMenuItem, "purchasesToolStripMenuItem");
             purchasesToolStripMenuItem.Name = "purchasesToolStripMenuItem";
+            resources.ApplyResources(purchasesToolStripMenuItem, "purchasesToolStripMenuItem");
+            purchasesToolStripMenuItem.Click += purchasesToolStripMenuItem_Click;
             // 
             // consumptionsToolStripMenuItem
             // 
-            resources.ApplyResources(consumptionsToolStripMenuItem, "consumptionsToolStripMenuItem");
             consumptionsToolStripMenuItem.Name = "consumptionsToolStripMenuItem";
+            resources.ApplyResources(consumptionsToolStripMenuItem, "consumptionsToolStripMenuItem");
             // 
             // AuthAbstractForm
             // 

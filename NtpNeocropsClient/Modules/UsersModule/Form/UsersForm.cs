@@ -1,5 +1,6 @@
 ﻿using ClassLibrary;
 using Microsoft.VisualBasic.ApplicationServices;
+using NtpNeocropsClient.Modules.Users.Entity;
 using NtpNeocropsClient.Utils;
 using System;
 using System.Collections.Generic;
@@ -23,12 +24,17 @@ namespace NtpNeocropsClient
 
         private async void FetchUsers()
         {
+            dataGridViewUsers.CellDoubleClick -= DataGridViewUsers_CellDoubleClick!;
+
+            dataGridViewUsers.ClearSelection();
+            dataGridViewUsers.CurrentCell = null;
+
             var farmId = NeocropsState.LoggedInUser?.UserFarm.Id;
             if (farmId != null)
             {
                 try
                 {
-                    var data = await ApiClient.GetAsync<List<Modules.Users.Entity.AppUser>>($"/farm/{farmId}/users");
+                    var data = await ApiClient.GetAsync<List<AppUser>>($"/farm/{farmId}/users");
 
                     if (data != null)
                     {
@@ -61,18 +67,13 @@ namespace NtpNeocropsClient
         {
             if (e.RowIndex >= 0)
             {
-                var user = (Modules.Users.Entity.AppUser)dataGridViewUsers.Rows[e.RowIndex].DataBoundItem;
+                var user = (AppUser)dataGridViewUsers.Rows[e.RowIndex].DataBoundItem;
 
                 var userDetailsForm = new UserDetailsForm(user);
                 var result = userDetailsForm.ShowDialog();
 
                 if (result == DialogResult.OK)
                 {
-                    dataGridViewUsers.CellDoubleClick -= DataGridViewUsers_CellDoubleClick!;
-
-                    dataGridViewUsers.ClearSelection();
-                    dataGridViewUsers.CurrentCell = null;
-
                     FetchUsers();
                 }
             }

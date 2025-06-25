@@ -1,5 +1,6 @@
 ﻿using ClassLibrary;
 using CredentialManagement;
+using NtpNeocropsClient.Modules.PurchasesModule.Form;
 using NtpNeocropsClient.Utils;
 using System;
 using System.Collections.Generic;
@@ -66,6 +67,13 @@ namespace NtpNeocropsClient
             this.Hide();
             UsersForm usersForm = new UsersForm();
             usersForm.Show();
+        }
+
+        private void purchasesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            PurchasesForm purchasesForm = new PurchasesForm();
+            purchasesForm.Show();
         }
     }
 }
