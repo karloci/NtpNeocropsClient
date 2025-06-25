@@ -171,4 +171,10 @@
   <data name="AreYouSure" xml:space="preserve">
     <value>Jeste li sigurni?</value>
   </data>
+  <data name="SelectedSupplyIsNotCorrect" xml:space="preserve">
+    <value>Odabrani repromaterijal je neispravan!</value>
+  </data>
+  <data name="AmountAndPriceMustBeNumbers" xml:space="preserve">
+    <value>Količina i Cijena moraju biti brojčane vrijednosti!</value>
+  </data>
 </root>

@@ -49,7 +49,7 @@ namespace NtpNeocropsClient.Modules.PurchasesModule.Form
             bool supplyParsed = int.TryParse(comboBoxSupply.SelectedValue?.ToString(), out int supply);
             if (!supplyParsed)
             {
-                MessageBox.Show("Unesite ispravne vrijednosti za količinu i cijenu.");
+                MessageBox.Show(Strings.SelectedSupplyIsNotCorrect);
                 return;
             }
 
@@ -61,7 +61,7 @@ namespace NtpNeocropsClient.Modules.PurchasesModule.Form
             bool priceParsed = double.TryParse(textBoxPrice.Text, out double price);
             if (!amountParsed || !priceParsed)
             {
-                MessageBox.Show("Unesite ispravne vrijednosti za količinu i cijenu.");
+                MessageBox.Show(Strings.AmountAndPriceMustBeNumbers);
                 return;
             }
 

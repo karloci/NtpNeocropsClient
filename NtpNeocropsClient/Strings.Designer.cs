@@ -70,6 +70,15 @@ namespace NtpNeocropsClient {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Amount and Price fields must be numbers!.
+        /// </summary>
+        internal static string AmountAndPriceMustBeNumbers {
+            get {
+                return ResourceManager.GetString("AmountAndPriceMustBeNumbers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure?.
         /// </summary>
         internal static string AreYouSure {
@@ -165,6 +174,15 @@ namespace NtpNeocropsClient {
         internal static string Pressure {
             get {
                 return ResourceManager.GetString("Pressure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selected supply is not correct!.
+        /// </summary>
+        internal static string SelectedSupplyIsNotCorrect {
+            get {
+                return ResourceManager.GetString("SelectedSupplyIsNotCorrect", resourceCulture);
             }
         }
         
