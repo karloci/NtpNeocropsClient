@@ -1,6 +1,8 @@
 ﻿using ClassLibrary;
 using CredentialManagement;
+using Microsoft.Win32;
 using Newtonsoft.Json.Linq;
+using NtpNeocropsClient.Modules.ForecastModule.Entity;
 using NtpNeocropsClient.Utils;
 using System;
 using System.Collections.Generic;
@@ -33,7 +35,7 @@ namespace NtpNeocropsClient
         {
             try
             {
-                List<ForecastModel> data = await GetForecastAsync();
+                List<Forecast> data = await GetForecastAsync();
 
                 var layout = new TableLayoutPanel
                 {
@@ -50,14 +52,25 @@ namespace NtpNeocropsClient
                 var tempChart = CreateSingleChart(data, $"{Strings.Temperature} (°C)", "Temp");
                 layout.Controls.Add(tempChart, 0, 0);
 
-                var pressureChart = CreateSingleChart(data, $"{Strings.Pressure} (hPa)", "Pressure");
-                layout.Controls.Add(pressureChart, 1, 0);
-
                 var humidityChart = CreateSingleChart(data, $"{Strings.Humidity} (%)", "Humidity");
                 layout.Controls.Add(humidityChart, 0, 1);
 
                 var windChart = CreateSingleChart(data, $"{Strings.WindSpeed} (m/s)", "WindSpeed");
                 layout.Controls.Add(windChart, 1, 1);
+
+                var weatherInformation = new Label
+                {
+                    Dock = DockStyle.Fill,
+                    AutoSize = false,
+                    TextAlign = ContentAlignment.TopLeft,
+                    Font = new Font("Segoe UI", 10),
+                    BackColor = Color.White,
+                    BorderStyle = BorderStyle.FixedSingle
+                };
+
+                var lines = data.Select(f => $"{f.Time:HH:mm} - {f.Weather}");
+                weatherInformation.Text = string.Join(Environment.NewLine, lines);
+                layout.Controls.Add(weatherInformation, 1, 0);
 
                 this.Controls.Add(layout);
             }
@@ -67,11 +80,11 @@ namespace NtpNeocropsClient
             }
         }
 
-        private Chart CreateSingleChart(List<ForecastModel> data, string title, string valueType)
+        private Chart CreateSingleChart(List<Forecast> data, string title, string valueType)
         {
             var chart = new Chart { Dock = DockStyle.Fill };
 
-            var chartArea = new ChartArea("WheatherChartArea")
+            var chartArea = new ChartArea("ForecastChartArea")
             {
                 AxisX = {
                     Title = Strings.Time,
@@ -107,9 +120,6 @@ namespace NtpNeocropsClient
                     case "Temp":
                         yValue = entry.Temp;
                         break;
-                    case "Pressure":
-                        yValue = entry.Pressure;
-                        break;
                     case "Humidity":
                         yValue = entry.Humidity;
                         break;
@@ -128,10 +138,15 @@ namespace NtpNeocropsClient
             return chart;
         }
 
-        private async Task<List<ForecastModel>> GetForecastAsync()
+        private async Task<List<Forecast>> GetForecastAsync()
         {
-            var result = new List<ForecastModel>();
+            var result = new List<Forecast>();
 
+            string preferedLanguage = "en";
+            using (var key = Registry.CurrentUser.OpenSubKey(@"Software\NeocropsApp\Language"))
+            {
+                preferedLanguage = key?.GetValue("Language") as string ?? "en";
+            }
             string? postalCode = NeocropsState.LoggedInUser?.UserFarm.PostalCode;
             string? countryIsoCode = NeocropsState.LoggedInUser?.UserFarm.CountryIsoCode;
             if (postalCode == null || countryIsoCode == null)
@@ -141,7 +156,7 @@ namespace NtpNeocropsClient
 
             string cacheDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "cache");
             Directory.CreateDirectory(cacheDir);
-            string forecastFile = Path.Combine(cacheDir, $"forecast_{postalCode}_{countryIsoCode}.xml");
+            string forecastFile = Path.Combine(cacheDir, $"forecast_{postalCode}_{countryIsoCode}_{preferedLanguage}.xml");
             if (File.Exists(forecastFile) && (DateTime.Now - File.GetLastWriteTime(forecastFile)).TotalMinutes <= 60)
             {
                 result = LoadWeatherDataFromXml(forecastFile);
@@ -155,12 +170,12 @@ namespace NtpNeocropsClient
             }
 
             var root = new XElement("WeatherData");
-            foreach (var item in JObject.Parse(json)["list"])
+            foreach (var item in JObject.Parse(json)!["list"]!)
             {
                 var entry = new XElement("Entry",
                     new XElement("dt", (long)item["dt"]),
                     new XElement("temp", (double)item["main"]["temp"]),
-                    new XElement("pressure", (int)item["main"]["pressure"]),
+                    new XElement("weather", (string)item["weather"][0]["description"]),
                     new XElement("humidity", (int)item["main"]["humidity"]),
                     new XElement("wind_speed", (double)item["wind"]["speed"])
                 );
@@ -170,13 +185,14 @@ namespace NtpNeocropsClient
 
             var xDocument = new XDocument(root);
             xDocument.Save(forecastFile);
+            result = LoadWeatherDataFromXml(forecastFile);
 
             return result;
         }
 
-        public List<ForecastModel> LoadWeatherDataFromXml(string path)
+        public List<Forecast> LoadWeatherDataFromXml(string path)
         {
-            var data = new List<ForecastModel>();
+            var data = new List<Forecast>();
             var xDocument = XDocument.Load(path);
 
             foreach (var entry in xDocument.Descendants("Entry"))
@@ -184,11 +200,11 @@ namespace NtpNeocropsClient
                 var unixTime = long.Parse(entry.Element("dt")?.Value!);
                 var dateTime = DateTimeOffset.FromUnixTimeSeconds(unixTime).DateTime;
 
-                data.Add(new ForecastModel
+                data.Add(new Forecast
                 {
                     Time = dateTime,
                     Temp = double.Parse(entry.Element("temp")?.Value!, CultureInfo.InvariantCulture),
-                    Pressure = int.Parse(entry.Element("pressure")?.Value!),
+                    Weather = entry.Element("weather")?.Value!,
                     Humidity = int.Parse(entry.Element("humidity")?.Value!),
                     WindSpeed = double.Parse(entry.Element("wind_speed")?.Value!, CultureInfo.InvariantCulture)
                 });
@@ -199,6 +215,11 @@ namespace NtpNeocropsClient
 
         public async Task<string?> FetchWeatherApiAsync()
         {
+            string preferedLanguage = "en";
+            using (var key = Registry.CurrentUser.OpenSubKey(@"Software\NeocropsApp\Language"))
+            {
+                preferedLanguage = key?.GetValue("Language") as string ?? "en";
+            }
             string? postalCode = NeocropsState.LoggedInUser?.UserFarm.PostalCode;
             string? countryIsoCode = NeocropsState.LoggedInUser?.UserFarm.CountryIsoCode;
 
@@ -206,7 +227,7 @@ namespace NtpNeocropsClient
             {
                 try
                 {
-                    var url = $"https://api.openweathermap.org/data/2.5/forecast?zip={postalCode},{countryIsoCode}&units=metric&cnt=12&appid=3dbce27eb39a328186906ad65265e65f";
+                    var url = $"https://api.openweathermap.org/data/2.5/forecast?zip={postalCode},{countryIsoCode}&units=metric&cnt=11&lang={preferedLanguage}&appid=3dbce27eb39a328186906ad65265e65f";
 
                     using (var client = new HttpClient())
                     {
@@ -222,15 +243,6 @@ namespace NtpNeocropsClient
             }
 
             return default;
-        }
-
-        public class ForecastModel
-        {
-            public DateTime Time { get; set; }
-            public double Temp { get; set; }
-            public int Pressure { get; set; }
-            public int Humidity { get; set; }
-            public double WindSpeed { get; set; }
         }
     }
 }
