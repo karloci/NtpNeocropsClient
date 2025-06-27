@@ -3,6 +3,7 @@ using Microsoft.VisualBasic.ApplicationServices;
 using NtpNeocropsClient.Modules.ConsumptionModule.Dto;
 using NtpNeocropsClient.Modules.ConsumptionModule.Entity;
 using NtpNeocropsClient.Modules.CountryModule.Service;
+using NtpNeocropsClient.Modules.InventoryModule.Service;
 using NtpNeocropsClient.Modules.PurchasesModule.Dto;
 using NtpNeocropsClient.Modules.PurchasesModule.Entity;
 using NtpNeocropsClient.Modules.SupplyModule.Entity;
@@ -93,9 +94,9 @@ namespace NtpNeocropsClient.Modules.ConsumptionModule.Form
                     }
                     else
                     {
-                        var data = await ApiClient.PutAsync<Purchase>($"/farm/{farmId}/purchases/{selectedConsumption.Id}", new ConsumptionDetailsDto
+                        var data = await ApiClient.PutAsync<Purchase>($"/farm/{farmId}/consumptions/{selectedConsumption.Id}", new ConsumptionDetailsDto
                         {
-                            Supply = supply,
+                            Supply = selectedConsumption.Supply.Id,
                             Amount = amount,
                             Date = date,
                             Comment = comment,
@@ -125,7 +126,7 @@ namespace NtpNeocropsClient.Modules.ConsumptionModule.Form
             {
                 try
                 {
-                    var supplies = await SupplyService.GetAvailableSuppliesAsync(farmId ?? 0);
+                    var supplies = await InventoryService.GetSuppliesAsync(farmId ?? 0);
 
                     comboBoxSupply.DisplayMember = "DisplayText";
                     comboBoxSupply.ValueMember = "Id";
