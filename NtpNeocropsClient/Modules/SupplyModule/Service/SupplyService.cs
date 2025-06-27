@@ -1,4 +1,5 @@
 ﻿using ClassLibrary;
+using NtpNeocropsClient.Modules.ConsumptionModule.Entity;
 using NtpNeocropsClient.Modules.CountryModule.Entity;
 using NtpNeocropsClient.Modules.FarmModule.Entity;
 using NtpNeocropsClient.Modules.PurchasesModule.Entity;
@@ -62,6 +63,20 @@ namespace NtpNeocropsClient.Modules.SupplyModule.Service
             }
             catch
             {
+                return new List<Supply>();
+            }
+        }
+
+        public static async Task<List<Supply>> GetAvailableSuppliesAsync(int farmId)
+        {
+            try
+            {
+                var data = await ApiClient.GetAsync<List<Supply>>($"/farm/{farmId}/inventory/supplies/available");
+                return data ?? new List<Supply>();
+            }
+            catch (ApiException ex)
+            {
+                MessageBox.Show(ex.Message);
                 return new List<Supply>();
             }
         }

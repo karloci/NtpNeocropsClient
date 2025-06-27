@@ -28,6 +28,12 @@
     <PackageReference Include="WinForms.DataVisualization" Version="1.10.0" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Modules\ConsumptionModule\Form\ConsumptionDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Modules\ConsumptionModule\Form\ConsumptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

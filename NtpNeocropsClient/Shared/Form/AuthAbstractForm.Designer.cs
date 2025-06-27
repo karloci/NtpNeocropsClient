@@ -113,6 +113,7 @@
             // 
             consumptionsToolStripMenuItem.Name = "consumptionsToolStripMenuItem";
             resources.ApplyResources(consumptionsToolStripMenuItem, "consumptionsToolStripMenuItem");
+            consumptionsToolStripMenuItem.Click += consumptionsToolStripMenuItem_Click;
             // 
             // AuthAbstractForm
             // 
