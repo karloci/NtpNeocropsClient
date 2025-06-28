@@ -1,4 +1,5 @@
 ﻿using ClassLibrary;
+using NtpNeocropsClient.Modules.InventoryModule.Entity;
 using NtpNeocropsClient.Modules.SupplyModule.Entity;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,20 @@ namespace NtpNeocropsClient.Modules.InventoryModule.Service
             {
                 MessageBox.Show(ex.Message);
                 return new List<Supply>();
+            }
+        }
+
+        public static async Task<List<Stock>> GetStocksAsync(int farmId)
+        {
+            try
+            {
+                var data = await ApiClient.GetAsync<List<Stock>>($"/farm/{farmId}/inventory/stocks");
+                return data ?? new List<Stock>();
+            }
+            catch (ApiException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return new List<Stock>();
             }
         }
     }

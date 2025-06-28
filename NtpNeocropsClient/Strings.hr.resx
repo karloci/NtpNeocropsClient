@@ -198,4 +198,16 @@
   <data name="Manufacturer" xml:space="preserve">
     <value>Proizvođač</value>
   </data>
+  <data name="TotalPrice" xml:space="preserve">
+    <value>Ukupna cijena</value>
+  </data>
+  <data name="Purchased" xml:space="preserve">
+    <value>Nabavljeno</value>
+  </data>
+  <data name="Consumed" xml:space="preserve">
+    <value>Utrošeno</value>
+  </data>
+  <data name="Stock" xml:space="preserve">
+    <value>Raspoloživo</value>
+  </data>
 </root>

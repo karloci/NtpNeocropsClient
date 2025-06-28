@@ -115,6 +115,15 @@ namespace NtpNeocropsClient {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Consumed.
+        /// </summary>
+        internal static string Consumed {
+            get {
+                return ResourceManager.GetString("Consumed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Date.
         /// </summary>
         internal static string Date {
@@ -232,11 +241,29 @@ namespace NtpNeocropsClient {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Purchased.
+        /// </summary>
+        internal static string Purchased {
+            get {
+                return ResourceManager.GetString("Purchased", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Selected supply is not correct!.
         /// </summary>
         internal static string SelectedSupplyIsNotCorrect {
             get {
                 return ResourceManager.GetString("SelectedSupplyIsNotCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stock.
+        /// </summary>
+        internal static string Stock {
+            get {
+                return ResourceManager.GetString("Stock", resourceCulture);
             }
         }
         
@@ -291,6 +318,15 @@ namespace NtpNeocropsClient {
         internal static string Time {
             get {
                 return ResourceManager.GetString("Time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total price.
+        /// </summary>
+        internal static string TotalPrice {
+            get {
+                return ResourceManager.GetString("TotalPrice", resourceCulture);
             }
         }
         

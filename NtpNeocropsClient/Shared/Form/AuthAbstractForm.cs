@@ -1,6 +1,7 @@
 ﻿using ClassLibrary;
 using CredentialManagement;
 using NtpNeocropsClient.Modules.ConsumptionModule.Form;
+using NtpNeocropsClient.Modules.InventoryModule.Form;
 using NtpNeocropsClient.Modules.PurchasesModule.Form;
 using NtpNeocropsClient.Utils;
 using System;
@@ -82,6 +83,13 @@ namespace NtpNeocropsClient
             this.Hide();
             ConsumptionsForm consumptionsForm = new ConsumptionsForm();
             consumptionsForm.Show();
+        }
+
+        private void stockStatusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            StocksForm stocksForm = new StocksForm();
+            stocksForm.Show();
         }
     }
 }

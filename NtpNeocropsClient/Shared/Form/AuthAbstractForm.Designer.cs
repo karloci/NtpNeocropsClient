@@ -102,6 +102,7 @@
             // 
             stockStatusToolStripMenuItem.Name = "stockStatusToolStripMenuItem";
             resources.ApplyResources(stockStatusToolStripMenuItem, "stockStatusToolStripMenuItem");
+            stockStatusToolStripMenuItem.Click += stockStatusToolStripMenuItem_Click;
             // 
             // purchasesToolStripMenuItem
             // 
