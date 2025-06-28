@@ -111,7 +111,6 @@
             Controls.Add(comboBoxSupply);
             Controls.Add(label1);
             Name = "ConsumptionDetailsForm";
-            Load += PurchaseDetailsForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

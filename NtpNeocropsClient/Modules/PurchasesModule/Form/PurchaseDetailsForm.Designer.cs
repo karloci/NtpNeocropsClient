@@ -139,7 +139,6 @@
             Controls.Add(comboBoxSupply);
             Controls.Add(label1);
             Name = "PurchaseDetailsForm";
-            Load += PurchaseDetailsForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

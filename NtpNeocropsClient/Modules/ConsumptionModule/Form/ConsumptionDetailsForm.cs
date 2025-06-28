@@ -30,15 +30,37 @@ namespace NtpNeocropsClient.Modules.ConsumptionModule.Form
         public ConsumptionDetailsForm(Consumption? consumption = null)
         {
             InitializeComponent();
+            selectedConsumption = consumption;
+            SetupComponent();
+        }
 
-
-            if (consumption != null)
+        private async void SetupComponent()
+        {
+            int? farmId = NeocropsState.LoggedInUser?.UserFarm.Id;
+            if (farmId != null)
             {
-                selectedConsumption = consumption;
-                comboBoxSupply.SelectedValue = consumption.Supply.Id;
-                textBoxAmount.Text = consumption.Amount.ToString();
-                dateTimePickerDate.Text = consumption.Date.ToString();
-                textBoxComment.Text = consumption.Comment;
+                try
+                {
+                    var supplies = await InventoryService.GetSuppliesAsync(farmId ?? 0);
+
+                    comboBoxSupply.DisplayMember = "DisplayText";
+                    comboBoxSupply.ValueMember = "Id";
+                    comboBoxSupply.DataSource = supplies;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+
+            if (selectedConsumption != null)
+            {
+                comboBoxSupply.SelectedValue = selectedConsumption.Supply.Id;
+                comboBoxSupply.Enabled = false;
+
+                textBoxAmount.Text = selectedConsumption.Amount.ToString();
+                dateTimePickerDate.Text = selectedConsumption.Date.ToString();
+                textBoxComment.Text = selectedConsumption.Comment;
             }
             else
             {
@@ -115,26 +137,6 @@ namespace NtpNeocropsClient.Modules.ConsumptionModule.Form
                 {
                     MessageBox.Show(ex.Message);
                     return;
-                }
-            }
-        }
-
-        private async void PurchaseDetailsForm_Load(object sender, EventArgs e)
-        {
-            int? farmId = NeocropsState.LoggedInUser?.UserFarm.Id;
-            if (farmId != null)
-            {
-                try
-                {
-                    var supplies = await InventoryService.GetSuppliesAsync(farmId ?? 0);
-
-                    comboBoxSupply.DisplayMember = "DisplayText";
-                    comboBoxSupply.ValueMember = "Id";
-                    comboBoxSupply.DataSource = supplies;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
                 }
             }
         }

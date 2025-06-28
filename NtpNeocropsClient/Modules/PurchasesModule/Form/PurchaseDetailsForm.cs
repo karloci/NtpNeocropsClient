@@ -26,17 +26,35 @@ namespace NtpNeocropsClient.Modules.PurchasesModule.Form
         public PurchaseDetailsForm(Purchase? purchase = null)
         {
             InitializeComponent();
+            selectedPurchase = purchase;
+            SetupComponent();
+        }
 
-
-            if (purchase != null)
+        private async void SetupComponent()
+        {
+            try
             {
-                selectedPurchase = purchase;
-                comboBoxSupply.SelectedValue = purchase.Supply.Id;
-                textBoxAmount.Text = purchase.Amount.ToString();
-                textBoxPrice.Text = purchase.Price.ToString();
-                dateTimePickerDate.Text = purchase.Date.ToString();
-                textBoxInvoiceNo.Text = purchase.InvoiceNo;
-                textBoxComment.Text = purchase.Comment;
+                var supplies = await SupplyService.GetSuppliesAsync();
+
+                comboBoxSupply.DisplayMember = "DisplayText";
+                comboBoxSupply.ValueMember = "Id";
+                comboBoxSupply.DataSource = supplies;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            if (selectedPurchase != null)
+            {
+                comboBoxSupply.SelectedValue = selectedPurchase.Supply.Id;
+                comboBoxSupply.Enabled = false;
+
+                textBoxAmount.Text = selectedPurchase.Amount.ToString();
+                textBoxPrice.Text = selectedPurchase.Price.ToString();
+                dateTimePickerDate.Text = selectedPurchase.Date.ToString();
+                textBoxInvoiceNo.Text = selectedPurchase.InvoiceNo;
+                textBoxComment.Text = selectedPurchase.Comment;
             }
             else
             {
@@ -98,7 +116,7 @@ namespace NtpNeocropsClient.Modules.PurchasesModule.Form
                     {
                         var data = await ApiClient.PutAsync<Purchase>($"/farm/{farmId}/purchases/{selectedPurchase.Id}", new PurchaseDetailsDto
                         {
-                            Supply = supply,
+                            Supply = selectedPurchase.Supply.Id,
                             Amount = amount,
                             Price = price,
                             Date = date,
@@ -120,22 +138,6 @@ namespace NtpNeocropsClient.Modules.PurchasesModule.Form
                     MessageBox.Show(ex.Message);
                     return;
                 }
-            }
-        }
-
-        private async void PurchaseDetailsForm_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                var supplies = await SupplyService.GetSuppliesAsync();
-
-                comboBoxSupply.DisplayMember = "DisplayText";
-                comboBoxSupply.ValueMember = "Id";
-                comboBoxSupply.DataSource = supplies;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
             }
         }
 

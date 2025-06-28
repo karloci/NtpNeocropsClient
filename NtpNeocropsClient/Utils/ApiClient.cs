@@ -65,21 +65,24 @@ namespace ClassLibrary
                 if (response.IsSuccessStatusCode)
                 {
                     var responseBody = await response.Content.ReadAsStringAsync();
-                    var data = JsonSerializer.Deserialize<AuthenticationResponseDto>(responseBody);
+                    var data = JsonSerializer.Deserialize<AuthenticationResponseDto>(responseBody, new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
 
                     if (data != null)
                     {
                         NeocropsState.SaveCredentials(data.LoggedInUser.Email, data.RefreshToken);
                         NeocropsState.LoggedInUser = data.LoggedInUser;
+                        NeocropsState.LoggedInUser.UserFarm = data.LoggedInUser.UserFarm;
                         NeocropsState.AccessToken = data.AccessToken;
                         NeocropsState.RefreshToken = data.RefreshToken;
                         return true;
                     }
 
                     return false;
-                }
-
-                if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                } 
+                else if (response.StatusCode == HttpStatusCode.Unauthorized)
                 {
                     NeocropsState.DeleteCredentials();
                     NeocropsState.LoggedInUser = null;
