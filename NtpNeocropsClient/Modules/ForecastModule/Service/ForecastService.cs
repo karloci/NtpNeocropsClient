@@ -27,10 +27,9 @@ namespace NtpNeocropsClient.Modules.ForecastModule.Service
             string cacheDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "cache");
             Directory.CreateDirectory(cacheDir);
             string forecastFile = Path.Combine(cacheDir, $"forecast_{postalCode}_{countryIsoCode}_{language}.xml");
-            if (File.Exists(forecastFile) && (DateTime.Now - File.GetLastWriteTime(forecastFile)).TotalMinutes <= 60)
+            if (File.Exists(forecastFile) && (DateTime.Now - File.GetLastWriteTime(forecastFile)).TotalMinutes <= 5)
             {
-                result = LoadWeatherDataFromXml(forecastFile);
-                return result;
+                return LoadWeatherDataFromXml(forecastFile);
             }
 
             var json = await FetchWeatherApiAsync(language, postalCode, countryIsoCode);
