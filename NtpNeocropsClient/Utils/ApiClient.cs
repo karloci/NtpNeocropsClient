@@ -1,4 +1,5 @@
 ﻿using CredentialManagement;
+using Microsoft.Win32;
 using NtpNeocropsClient.Modules.Authentication.Dto;
 using NtpNeocropsClient.Shared.Dto;
 using NtpNeocropsClient.Shared.Entity;
@@ -6,6 +7,7 @@ using NtpNeocropsClient.Utils;
 using System;
 using System.Diagnostics;
 using System.Drawing.Imaging;
+using System.Globalization;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -25,11 +27,18 @@ namespace ClassLibrary
         {
             httpClient = new HttpClient
             {
-                BaseAddress = new Uri("http://127.0.0.1:8081")
+                BaseAddress = new Uri("https://api.neocrops.com")
             };
 
             httpClient.DefaultRequestHeaders.Accept.Clear();
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            using (var key = Registry.CurrentUser.OpenSubKey(@"Software\NeocropsApp\Language"))
+            {
+                var preferredLanguage = key?.GetValue("Language") as string ?? "en";
+                httpClient.DefaultRequestHeaders.AcceptLanguage.Clear();
+                httpClient.DefaultRequestHeaders.AcceptLanguage.Add(new StringWithQualityHeaderValue(preferredLanguage));
+            }
         }
 
         private static void AddAuthorizationHeader()

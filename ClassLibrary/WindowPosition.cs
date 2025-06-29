@@ -28,6 +28,7 @@ namespace ClassLibrary
             {
                 Directory.CreateDirectory(dir);
             }
+            Debug.WriteLine(dir);
 
         }
 
