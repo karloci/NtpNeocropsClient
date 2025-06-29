@@ -19,6 +19,6 @@ namespace NtpNeocropsClient.Modules.ConsumptionModule.Entity
 
         public string? SupplyName => Supply?.Name;
         public string? ManufacturerName => Supply?.Manufacturer;
-        public string AmountWithUnit => $"{Amount} {Supply?.MeasureUnit}";
+        public string AmountWithUnit => $"{Amount:F2} {Supply?.MeasureUnit}";
     }
 }

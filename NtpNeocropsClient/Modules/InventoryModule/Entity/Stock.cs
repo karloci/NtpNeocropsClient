@@ -20,8 +20,8 @@ namespace NtpNeocropsClient.Modules.InventoryModule.Entity
         public float StockAmount { get; set; }
 
         public string TotalPriceInEuros => $"{TotalPrice:F2} €";
-        public string PurchasedAmountWithUnit => $"{PurchasedAmount} {MeasureUnit}";
-        public string ConsumedAmountWithUnit => $"{ConsumedAmount} {MeasureUnit}";
-        public string StockAmountWithUnit => $"{StockAmount} {MeasureUnit}";
+        public string PurchasedAmountWithUnit => $"{PurchasedAmount:F2} {MeasureUnit}";
+        public string ConsumedAmountWithUnit => $"{ConsumedAmount:F2} {MeasureUnit}";
+        public string StockAmountWithUnit => $"{StockAmount:F2} {MeasureUnit}";
     }
 }
