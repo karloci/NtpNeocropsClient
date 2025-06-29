@@ -2,7 +2,6 @@
 using Microsoft.Win32;
 using NtpNeocropsClient.Modules.Authentication.Dto;
 using NtpNeocropsClient.Shared.Dto;
-using NtpNeocropsClient.Shared.Entity;
 using NtpNeocropsClient.Utils;
 using System;
 using System.Diagnostics;
